@@ -1,0 +1,20 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink:    #162b57;
+  --ink2:   #0e1f40;
+  --gold:   #c8974a;
+  --gold2:  #e8b96a;
+  --sand:   #f5efe4;
+  --sand2:  #ede4d3;
+  --white:  #fdfbf8;
+  --mid:    #5a6680;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
