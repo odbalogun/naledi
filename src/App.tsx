@@ -1,15 +1,8 @@
 import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Layout from "./Layout";
+import About from "./pages/About";
 import "./App.css";
-
-const LOGO_SVG = (
-	<svg viewBox="0 0 32 32" fill="none">
-		<polygon
-			points="16,1 19,11 29,11 21,17 24,27 16,21 8,27 11,17 3,11 13,11"
-			fill="#c8974a"
-		/>
-		<circle cx="16" cy="16" r="3.5" fill="#c8974a" opacity=".65" />
-	</svg>
-);
 
 const ARROW_SVG = (
 	<svg
@@ -92,6 +85,8 @@ function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>) {
 }
 
 function App() {
+	const location = useLocation();
+
 	useEffect(() => {
 		const cur = document.getElementById("cur");
 		if (!cur) return;
@@ -121,11 +116,14 @@ function App() {
 		const nav = document.getElementById("nav");
 		if (!nav) return;
 
-		const onScroll = () => nav.classList.toggle("solid", window.scrollY > 60);
-		if (window.scrollY > 60) nav.classList.add("solid");
+		const isAboutPage = location.pathname === "/about";
+		const onScroll = () => {
+			nav.classList.toggle("solid", isAboutPage || window.scrollY > 60);
+		};
+		onScroll();
 		window.addEventListener("scroll", onScroll);
 		return () => window.removeEventListener("scroll", onScroll);
-	}, []);
+	}, [location.pathname]);
 
 	useEffect(() => {
 		const obs = new IntersectionObserver(
@@ -141,49 +139,17 @@ function App() {
 		);
 		document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
 		return () => obs.disconnect();
-	}, []);
+	}, [location.pathname]);
 
 	return (
 		<>
 			<div className="cursor" id="cur" />
-
-			<nav id="nav">
-				<a className="logo" href="#" onClick={scrollToSection}>
-					{LOGO_SVG}
-					<div>
-						<span className="logo-name">Naledi</span>
-						<span className="logo-sub">Educational Consulting</span>
-					</div>
-				</a>
-				<ul className="nav-links">
-					<li>
-						<a href="#mission" onClick={scrollToSection}>
-							About
-						</a>
-					</li>
-					<li>
-						<a href="#services" onClick={scrollToSection}>
-							Services
-						</a>
-					</li>
-					<li>
-						<a href="#destinations" onClick={scrollToSection}>
-							Destinations
-						</a>
-					</li>
-					<li>
-						<a href="#stories" onClick={scrollToSection}>
-							Stories
-						</a>
-					</li>
-					<li>
-						<a href="#cta" className="nav-btn" onClick={scrollToSection}>
-							Start Your Journey
-						</a>
-					</li>
-				</ul>
-			</nav>
-
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route
+						index
+						element={
+							<>
 			<section className="hero">
 				<div className="hero-panels">
 					<div className="hero-panel p-campus">
@@ -765,101 +731,12 @@ function App() {
 					</div>
 				</div>
 			</section>
-
-			<footer>
-				<div className="ft">
-					<div className="fb">
-						<span className="fb-name">Naledi</span>
-						<span className="fb-sub">Educational Consulting</span>
-						<p>
-							Guiding Africa&apos;s brightest students to the world&apos;s
-							finest schools — one star at a time.
-						</p>
-						<div className="f-soc">
-							<a className="fsa" href="#">
-								in
-							</a>
-							<a className="fsa" href="#">
-								tw
-							</a>
-							<a className="fsa" href="#">
-								ig
-							</a>
-							<a className="fsa" href="#">
-								fb
-							</a>
-						</div>
-					</div>
-					<div className="fc">
-						<h5>Services</h5>
-						<ul>
-							<li>
-								<a href="#">School Selection</a>
-							</li>
-							<li>
-								<a href="#">Application Strategy</a>
-							</li>
-							<li>
-								<a href="#">Interview Prep</a>
-							</li>
-							<li>
-								<a href="#">Scholarship Search</a>
-							</li>
-							<li>
-								<a href="#">Visa Assistance</a>
-							</li>
-						</ul>
-					</div>
-					<div className="fc">
-						<h5>Destinations</h5>
-						<ul>
-							<li>
-								<a href="#">United Kingdom</a>
-							</li>
-							<li>
-								<a href="#">United States</a>
-							</li>
-							<li>
-								<a href="#">Canada</a>
-							</li>
-							<li>
-								<a href="#">Australia</a>
-							</li>
-							<li>
-								<a href="#">View All</a>
-							</li>
-						</ul>
-					</div>
-					<div className="fc">
-						<h5>Company</h5>
-						<ul>
-							<li>
-								<a href="#">About Naledi</a>
-							</li>
-							<li>
-								<a href="#">Our Team</a>
-							</li>
-							<li>
-								<a href="#">Student Stories</a>
-							</li>
-							<li>
-								<a href="#">Blog</a>
-							</li>
-							<li>
-								<a href="#">Contact</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div className="fb-bot">
-					<span>
-						© 2026 Naledi Educational Consulting. All rights reserved.
-					</span>
-					<span>
-						<a href="#">Privacy</a> · <a href="#">Terms</a>
-					</span>
-				</div>
-			</footer>
+							</>
+						}
+					/>
+					<Route path="about" element={<About />} />
+				</Route>
+			</Routes>
 		</>
 	);
 }

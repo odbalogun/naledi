@@ -330,6 +330,22 @@ nav.solid {
 .cta-form button { background: var(--gold); color: var(--ink2); border: none; padding: 16px 28px; cursor: pointer; font-family: 'Outfit', sans-serif; font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-radius: 0 2px 2px 0; white-space: nowrap; transition: background .25s; }
 .cta-form button:hover { background: var(--gold2); }
 
+/* FOUNDER (About page) */
+.founder-section { background: var(--white); }
+.founder-grid { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: center; }
+.founder-portrait { border-radius: 4px; overflow: hidden; aspect-ratio: 3/4; max-height: 520px; }
+.founder-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+/* PARTNERS (About page) */
+.partners-section { background: var(--sand); padding: 100px 0; }
+.partners-head { margin-bottom: 24px; }
+.partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; align-items: center; justify-items: center; max-width: 900px; margin: 0 auto; }
+.partner-logo { display: flex; flex-direction: column; align-items: center; gap: 16px; text-decoration: none; color: var(--ink); padding: 32px 24px; background: #fff; border-radius: 8px; box-shadow: 0 2px 24px rgba(22,43,87,.08); transition: transform .3s, box-shadow .3s; min-height: 140px; justify-content: center; }
+.partner-logo:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(22,43,87,.12); }
+.partner-logo img { height: 48px; width: auto; max-width: 160px; object-fit: contain; filter: grayscale(100%); opacity: .85; transition: filter .3s, opacity .3s; }
+.partner-logo:hover img { filter: grayscale(0); opacity: 1; }
+.partner-logo span { font-size: .75rem; font-weight: 500; color: var(--mid); letter-spacing: .08em; text-transform: uppercase; }
+
 /* FOOTER */
 footer { background: var(--ink2); }
 .ft { max-width: 1200px; margin: 0 auto; padding: 72px 64px 56px; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 56px; }
@@ -379,4 +395,7 @@ footer { background: var(--ink2); }
   .cta-form input{border-radius:2px;border:1px solid rgba(255,255,255,.2)}
   .cta-form button{border-radius:2px;width:100%}
   .svc-gr{grid-template-columns:1fr}
+  .founder-grid{grid-template-columns:1fr;gap:48px}
+  .founder-portrait{max-height:400px;margin:0 auto;max-width:360px}
+  .partners-grid{grid-template-columns:1fr;gap:24px}
 }
