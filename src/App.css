@@ -13,6 +13,10 @@
 .bg-sand { background: var(--sand); }
 .bg-ink { background: var(--ink); }
 
+.text-white {color: var(--white);}
+.text-ink {color: var(--ink);}
+.text-sand {color: var(--sand);}
+
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
@@ -412,7 +416,7 @@ nav.solid {
 .proc-photo { position: relative; border-radius: 4px; overflow: hidden; height: 380px; margin-bottom: 68px; }
 .proc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
 .proc-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, var(--ink) 0%, transparent 40%), linear-gradient(to left, var(--ink) 0%, transparent 40%); }
-.proc-overlay { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+.proc-overlay { position: absolute; inset: 0; z-index: 2; display: none; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
 .proc-overlay h3 { font-family: 'Fraunces', serif; font-size: 2.3rem; color: #fff; font-weight: 300; font-style: italic; }
 .proc-overlay span { color: var(--gold); font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; margin-top: 10px; display: block; }
 .steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; position: relative; }
