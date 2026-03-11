@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./Layout";
 import About from "./pages/About";
+import Services from "./pages/Services";
+import UndergraduatePostgraduate from "./pages/UndergraduatePostgraduate";
 import "./App.css";
 
 const ARROW_SVG = (
@@ -116,9 +118,9 @@ function App() {
 		const nav = document.getElementById("nav");
 		if (!nav) return;
 
-		const isAboutPage = location.pathname === "/about";
+		const isSolidNav = ["/about", "/services", "/undergraduate-postgraduate"].includes(location.pathname);
 		const onScroll = () => {
-			nav.classList.toggle("solid", isAboutPage || window.scrollY > 60);
+			nav.classList.toggle("solid", isSolidNav || window.scrollY > 60);
 		};
 		onScroll();
 		window.addEventListener("scroll", onScroll);
@@ -735,6 +737,8 @@ function App() {
 						}
 					/>
 					<Route path="about" element={<About />} />
+					<Route path="services" element={<Services />} />
+					<Route path="undergraduate-postgraduate" element={<UndergraduatePostgraduate />} />
 				</Route>
 			</Routes>
 		</>

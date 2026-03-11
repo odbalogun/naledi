@@ -26,7 +26,10 @@ function Layout() {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/#services">Services</Link>
+            <Link to="/services">Services</Link>
+          </li>
+          <li>
+            <Link to="/undergraduate-postgraduate">Undergraduate &amp; Graduate</Link>
           </li>
           <li>
             <Link to="/#destinations">Destinations</Link>
@@ -69,11 +72,8 @@ function Layout() {
           <div className="fc">
             <h5>Services</h5>
             <ul>
-              <li><a href="#">School Selection</a></li>
-              <li><a href="#">Application Strategy</a></li>
-              <li><a href="#">Interview Prep</a></li>
-              <li><a href="#">Scholarship Search</a></li>
-              <li><a href="#">Visa Assistance</a></li>
+              <li><Link to="/services">Our Services</Link></li>
+              <li><Link to="/undergraduate-postgraduate">Undergraduate &amp; Graduate</Link></li>
             </ul>
           </div>
           <div className="fc">
