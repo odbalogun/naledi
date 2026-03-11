@@ -99,7 +99,7 @@ function HighSchoolPlacement() {
 			const { scrollLeft, clientWidth, scrollWidth } = el;
 			setHsDestCanScrollLeft(scrollLeft > HS_DEST_SCROLL_THRESHOLD);
 			setHsDestCanScrollRight(
-				scrollLeft + clientWidth < scrollWidth - HS_DEST_SCROLL_THRESHOLD
+				scrollLeft + clientWidth < scrollWidth - HS_DEST_SCROLL_THRESHOLD,
 			);
 		};
 		update();
@@ -126,13 +126,13 @@ function HighSchoolPlacement() {
 							</div>
 							<div className="mi sq">
 								<img
-									src="https://images.unsplash.com/photo-1523580846011-43a03dd88a4f?w=900&q=85&fit=crop"
+									src="/images/diverse_group.jpg"
 									alt="Students walking on campus"
 								/>
 							</div>
 							<div className="mi sq">
 								<img
-									src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=85&fit=crop"
+									src="/images/black_student_writing.jpg"
 									alt="Graduate student"
 								/>
 							</div>
@@ -346,7 +346,16 @@ function HighSchoolPlacement() {
 							aria-hidden={!hsDestCanScrollLeft}
 							onClick={() => scrollHsDest("left")}
 						>
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							>
 								<path d="M15 18l-6-6 6-6" />
 							</svg>
 						</button>
@@ -369,7 +378,16 @@ function HighSchoolPlacement() {
 							aria-hidden={!hsDestCanScrollRight}
 							onClick={() => scrollHsDest("right")}
 						>
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							>
 								<path d="M9 18l6-6-6-6" />
 							</svg>
 						</button>
