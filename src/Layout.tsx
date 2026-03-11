@@ -28,7 +28,7 @@ function Layout() {
 						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/services">Services</NavLink>
+						<NavLink to="/high-school-placement">High School Placement</NavLink>
 					</li>
 					<li>
 						<NavLink to="/undergraduate-postgraduate">
@@ -77,7 +77,7 @@ function Layout() {
 						<h5>Services</h5>
 						<ul>
 							<li>
-								<Link to="/services">Our Services</Link>
+								<Link to="/high-school-placement">High School Placement</Link>
 							</li>
 							<li>
 								<Link to="/undergraduate-postgraduate">

@@ -9,6 +9,10 @@
 }
 .cursor.big { width: 44px; height: 44px; background: rgba(200,151,74,.25); }
 
+.bg-white { background: var(--white); }
+.bg-sand { background: var(--sand); }
+.bg-ink { background: var(--ink); }
+
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
@@ -250,6 +254,7 @@ nav.solid {
 
 /* DESTINATIONS */
 .destinations { background: var(--sand); }
+.destinations-high-school { background: var(--white);}
 .d-top { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; }
 .d-top a { color: var(--gold); font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: gap .3s; }
 .d-top a:hover { gap: 14px; }
@@ -291,6 +296,41 @@ nav.solid {
 .step h4 { font-size: .82rem; color: rgba(255,255,255,.8); font-weight: 500; margin-bottom: 8px; }
 .step p { font-size: .72rem; color: rgba(255,255,255,.4); line-height: 1.6; font-weight: 300; }
 
+/* High-school placement: custom process layout */
+.hs-process-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.hs-process-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px 18px 18px 20px;
+  background: rgba(8,18,38,.92);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.hs-step-number {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: .1em;
+}
+.hs-step-body h4 {
+  font-size: .9rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.hs-step-body p {
+  font-size: .78rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
 /* TESTIMONIALS */
 .testimonials { background: var(--white); }
 .t-head { text-align: center; max-width: 560px; margin: 0 auto 60px; }
@@ -315,6 +355,14 @@ nav.solid {
 .t-mini-av img { width: 100%; height: 100%; object-fit: cover; }
 .t-mini-nm { font-size: .82rem; font-weight: 500; color: var(--ink); display: block; }
 .t-mini-lc { font-size: .67rem; color: var(--mid); text-transform: uppercase; letter-spacing: .1em; }
+
+/* High-school placement: testimonials grid */
+.hs-testimonials-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
 
 /* CTA */
 .cta { position: relative; overflow: hidden; }
@@ -607,6 +655,8 @@ footer { background: var(--ink2); }
   .cta-form button{border-radius:2px;width:100%}
   .svc-gr{grid-template-columns:1fr}
   .events-grid{grid-template-columns:1fr}
+.hs-process-grid{grid-template-columns:1fr}
+.hs-testimonials-grid{grid-template-columns:1fr}
   .event-list-item{grid-template-columns:1fr}
   .founder-grid{grid-template-columns:1fr;gap:48px}
   .founder-portrait{max-height:400px;margin:0 auto;max-width:360px}
