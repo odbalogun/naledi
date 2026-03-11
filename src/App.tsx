@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./Layout";
 import About from "./pages/About";
@@ -89,8 +89,42 @@ function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>) {
 	}
 }
 
+const SCROLL_STEP = 320; // card width (300) + gap (20)
+
+const SCROLL_THRESHOLD = 5;
+
 function App() {
 	const location = useLocation();
+	const storiesScrollRef = useRef<HTMLDivElement>(null);
+	const [storiesCanScrollLeft, setStoriesCanScrollLeft] = useState(false);
+	const [storiesCanScrollRight, setStoriesCanScrollRight] = useState(false);
+
+	const scrollStories = (direction: "left" | "right") => {
+		const el = storiesScrollRef.current;
+		if (!el) return;
+		el.scrollBy({
+			left: direction === "left" ? -SCROLL_STEP : SCROLL_STEP,
+			behavior: "smooth",
+		});
+	};
+
+	useEffect(() => {
+		if (location.pathname !== "/") return;
+		const el = storiesScrollRef.current;
+		if (!el) return;
+		const update = () => {
+			const { scrollLeft, clientWidth, scrollWidth } = el;
+			setStoriesCanScrollLeft(scrollLeft > SCROLL_THRESHOLD);
+			setStoriesCanScrollRight(scrollLeft + clientWidth < scrollWidth - SCROLL_THRESHOLD);
+		};
+		update();
+		el.addEventListener("scroll", update);
+		window.addEventListener("resize", update);
+		return () => {
+			el.removeEventListener("scroll", update);
+			window.removeEventListener("resize", update);
+		};
+	}, [location.pathname]);
 
 	useEffect(() => {
 		const cur = document.getElementById("cur");
@@ -353,54 +387,78 @@ function App() {
 												once thought possible.
 											</p>
 										</div>
-										<div className="s-scroll">
-											{[
-												{
-													img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=85&fit=crop&crop=top",
-													country: "Nigeria → United Kingdom",
-													name: "Amara O.",
-													school: "Eton College · Full Scholarship",
-													tag: "Class of 2023",
-												},
-												{
-													img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=85&fit=crop&crop=top",
-													country: "Ghana → United States",
-													name: "Kofi A.",
-													school: "Phillips Exeter Academy",
-													tag: "Class of 2024",
-												},
-												{
-													img: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=600&q=85&fit=crop&crop=top",
-													country: "South Africa → Australia",
-													name: "Zola D.",
-													school: "Geelong Grammar School",
-													tag: "Class of 2024",
-												},
-												{
-													img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=85&fit=crop&crop=top",
-													country: "Kenya → Canada",
-													name: "Aisha M.",
-													school: "Upper Canada College",
-													tag: "Class of 2025",
-												},
-												{
-													img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=85&fit=crop&crop=top",
-													country: "Cameroon → Switzerland",
-													name: "Emmanuel T.",
-													school: "Institut Le Rosey",
-													tag: "Class of 2025",
-												},
-											].map((s, i) => (
-												<div key={i} className={`sc reveal d${i + 1}`}>
-													<img src={s.img} alt={s.name} />
-													<div className="sc-ov">
-														<span className="sc-ctry">{s.country}</span>
-														<div className="sc-name">{s.name}</div>
-														<div className="sc-school">{s.school}</div>
+										<div className="s-scroll-wrap">
+											<button
+												type="button"
+												className={`s-scroll-btn s-scroll-btn-left${storiesCanScrollLeft ? "" : " s-scroll-btn-hidden"}`}
+												aria-label="Scroll stories left"
+												aria-hidden={!storiesCanScrollLeft}
+												onClick={() => scrollStories("left")}
+											>
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+													<path d="M15 18l-6-6 6-6" />
+												</svg>
+											</button>
+											<div className="s-scroll" ref={storiesScrollRef}>
+												{[
+													{
+														img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=85&fit=crop&crop=top",
+														country: "Nigeria → United Kingdom",
+														name: "Amara O.",
+														school: "Eton College · Full Scholarship",
+														tag: "Class of 2023",
+													},
+													{
+														img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=85&fit=crop&crop=top",
+														country: "Ghana → United States",
+														name: "Kofi A.",
+														school: "Phillips Exeter Academy",
+														tag: "Class of 2024",
+													},
+													{
+														img: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=600&q=85&fit=crop&crop=top",
+														country: "South Africa → Australia",
+														name: "Zola D.",
+														school: "Geelong Grammar School",
+														tag: "Class of 2024",
+													},
+													{
+														img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=85&fit=crop&crop=top",
+														country: "Kenya → Canada",
+														name: "Aisha M.",
+														school: "Upper Canada College",
+														tag: "Class of 2025",
+													},
+													{
+														img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=85&fit=crop&crop=top",
+														country: "Cameroon → Switzerland",
+														name: "Emmanuel T.",
+														school: "Institut Le Rosey",
+														tag: "Class of 2025",
+													},
+												].map((s, i) => (
+													<div key={i} className={`sc reveal d${i + 1}`}>
+														<img src={s.img} alt={s.name} />
+														<div className="sc-ov">
+															<span className="sc-ctry">{s.country}</span>
+															<div className="sc-name">{s.name}</div>
+															<div className="sc-school">{s.school}</div>
+														</div>
+														<div className="sc-tag">{s.tag}</div>
 													</div>
-													<div className="sc-tag">{s.tag}</div>
-												</div>
-											))}
+												))}
+											</div>
+											<button
+												type="button"
+												className={`s-scroll-btn s-scroll-btn-right${storiesCanScrollRight ? "" : " s-scroll-btn-hidden"}`}
+												aria-label="Scroll stories right"
+												aria-hidden={!storiesCanScrollRight}
+												onClick={() => scrollStories("right")}
+											>
+												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+													<path d="M9 18l6-6-6-6" />
+												</svg>
+											</button>
 										</div>
 									</div>
 								</section>

@@ -255,8 +255,38 @@ nav.solid {
 .s-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
 .s-top .ttl { max-width: 440px; }
 .s-top > p { color: rgba(255,255,255,.5); font-size: .9rem; max-width: 280px; line-height: 1.75; font-weight: 300; text-align: right; }
-.s-scroll { display: flex; gap: 20px; overflow-x: auto; scrollbar-width: none; padding-bottom: 8px; }
+.s-scroll-wrap { position: relative; }
+.s-scroll { display: flex; gap: 20px; overflow-x: auto; scrollbar-width: none; padding-bottom: 8px; scroll-padding: 0 48px; }
 .s-scroll::-webkit-scrollbar { display: none; }
+.s-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(14,31,64,.85);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s, visibility .2s, background .2s, border-color .2s, transform .2s;
+}
+.s-scroll-btn:hover {
+  background: rgba(200,151,74,.9);
+  border-color: var(--gold);
+  transform: translateY(-50%) scale(1.05);
+}
+.s-scroll-btn-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.s-scroll-btn-left { left: 0; }
+.s-scroll-btn-right { right: 0; }
 .sc { flex: 0 0 300px; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; transition: transform .35s; }
 .sc:hover { transform: translateY(-6px); }
 .sc img { width: 100%; height: 390px; object-fit: cover; object-position: top; transition: transform .5s; }
@@ -305,6 +335,84 @@ nav.solid {
 .dc-flag { font-size: 1.8rem; margin-bottom: 7px; display: block; }
 .dc-name { font-family: 'Fraunces', serif; font-size: 1.2rem; color: #fff; font-weight: 600; margin-bottom: 3px; }
 .dc-cnt { font-size: .68rem; color: var(--gold); letter-spacing: .12em; text-transform: uppercase; font-weight: 500; }
+
+/* High school destinations – horizontal scroll + arrows */
+.hs-dest-scroll-wrap { position: relative; margin-top: 0; }
+.hs-dest-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+  scroll-padding: 0 48px;
+}
+.hs-dest-scroll::-webkit-scrollbar { display: none; }
+.hs-dest-scroll .dc { flex: 0 0 280px; min-width: 280px; }
+.hs-dest-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(22,43,87,.2);
+  background: rgba(255,255,255,.95);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s, visibility .2s, background .2s, border-color .2s, transform .2s;
+  box-shadow: 0 2px 12px rgba(22,43,87,.1);
+}
+.hs-dest-scroll-btn:hover {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+  transform: translateY(-50%) scale(1.05);
+}
+.hs-dest-scroll-btn-left { left: 0; }
+.hs-dest-scroll-btn-right { right: 0; }
+
+/* Undergraduate destinations – horizontal scroll + arrows (same pattern) */
+.ug-dest-scroll-wrap { position: relative; margin-top: 0; }
+.ug-dest-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+  scroll-padding: 0 48px;
+}
+.ug-dest-scroll::-webkit-scrollbar { display: none; }
+.ug-dest-scroll .dc { flex: 0 0 280px; min-width: 280px; }
+.ug-dest-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(22,43,87,.2);
+  background: rgba(255,255,255,.95);
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .2s, visibility .2s, background .2s, border-color .2s, transform .2s;
+  box-shadow: 0 2px 12px rgba(22,43,87,.1);
+}
+.ug-dest-scroll-btn:hover {
+  background: var(--gold);
+  color: #fff;
+  border-color: var(--gold);
+  transform: translateY(-50%) scale(1.05);
+}
+.ug-dest-scroll-btn-left { left: 0; }
+.ug-dest-scroll-btn-right { right: 0; }
 
 /* DESTINATIONS PAGE */
 .destinations-page { background: var(--sand); padding-top: 96px; padding-bottom: 96px; }

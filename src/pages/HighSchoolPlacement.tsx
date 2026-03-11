@@ -1,4 +1,116 @@
+import { useEffect, useRef, useState } from "react";
+
+const HS_DEST_SCROLL_STEP = 296; // card min-width (280) + gap (16)
+const HS_DEST_SCROLL_THRESHOLD = 5;
+
+const HS_DESTINATIONS = [
+	{
+		img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=85&fit=crop",
+		flag: "🇬🇧",
+		name: "United Kingdom",
+		count: "Selective Boarding & Day Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=900&q=85&fit=crop",
+		flag: "🇺🇸",
+		name: "United States",
+		count: "Top Independent & Boarding Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=900&q=85&fit=crop",
+		flag: "🇨🇦",
+		name: "Canada",
+		count: "Leading Day & Boarding Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?w=900&q=85&fit=crop",
+		flag: "🇦🇺",
+		name: "Australia",
+		count: "High-Performing Boarding Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=900&q=85&fit=crop",
+		flag: "🇳🇿",
+		name: "New Zealand",
+		count: "Strong Academic & Outdoor Education",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=900&q=85&fit=crop",
+		flag: "🇨🇭",
+		name: "Switzerland",
+		count: "IB & International Boarding Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=900&q=85&fit=crop",
+		flag: "🇳🇱",
+		name: "Netherlands",
+		count: "IB & Bilingual Programmes",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=900&q=85&fit=crop",
+		flag: "🇩🇪",
+		name: "Germany",
+		count: "International & Bilingual Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=900&q=85&fit=crop",
+		flag: "🇸🇬",
+		name: "Singapore",
+		count: "World-Class International Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=85&fit=crop",
+		flag: "🇦🇪",
+		name: "UAE",
+		count: "Dubai & Abu Dhabi International Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&q=85&fit=crop",
+		flag: "🇿🇦",
+		name: "South Africa",
+		count: "Leading IEB & Independent Schools",
+	},
+	{
+		img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=900&q=85&fit=crop",
+		flag: "🇫🇷",
+		name: "France",
+		count: "International & Bilingual Options",
+	},
+];
+
 function HighSchoolPlacement() {
+	const hsDestScrollRef = useRef<HTMLDivElement>(null);
+	const [hsDestCanScrollLeft, setHsDestCanScrollLeft] = useState(false);
+	const [hsDestCanScrollRight, setHsDestCanScrollRight] = useState(false);
+
+	const scrollHsDest = (direction: "left" | "right") => {
+		const el = hsDestScrollRef.current;
+		if (!el) return;
+		el.scrollBy({
+			left: direction === "left" ? -HS_DEST_SCROLL_STEP : HS_DEST_SCROLL_STEP,
+			behavior: "smooth",
+		});
+	};
+
+	useEffect(() => {
+		const el = hsDestScrollRef.current;
+		if (!el) return;
+		const update = () => {
+			const { scrollLeft, clientWidth, scrollWidth } = el;
+			setHsDestCanScrollLeft(scrollLeft > HS_DEST_SCROLL_THRESHOLD);
+			setHsDestCanScrollRight(
+				scrollLeft + clientWidth < scrollWidth - HS_DEST_SCROLL_THRESHOLD
+			);
+		};
+		update();
+		el.addEventListener("scroll", update);
+		window.addEventListener("resize", update);
+		return () => {
+			el.removeEventListener("scroll", update);
+			window.removeEventListener("resize", update);
+		};
+	}, []);
+
 	return (
 		<>
 			{/* Hero / overview */}
@@ -226,42 +338,41 @@ function HighSchoolPlacement() {
 							</h2>
 						</div>
 					</div>
-					<div className="dgrid">
-						{[
-							{
-								img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=85&fit=crop",
-								flag: "🇬🇧",
-								name: "United Kingdom",
-								count: "Selective Boarding & Day Schools",
-							},
-							{
-								img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=900&q=85&fit=crop",
-								flag: "🇺🇸",
-								name: "United States",
-								count: "Top Independent & Boarding Schools",
-							},
-							{
-								img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=900&q=85&fit=crop",
-								flag: "🇨🇦",
-								name: "Canada",
-								count: "Leading Day & Boarding Schools",
-							},
-							{
-								img: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?w=900&q=85&fit=crop",
-								flag: "🇦🇺",
-								name: "Australia",
-								count: "High-Performing Boarding Schools",
-							},
-						].map((d, i) => (
-							<div key={d.name} className={`dc reveal d${i + 1}`}>
-								<img src={d.img} alt={d.name} />
-								<div className="dc-body">
-									<span className="dc-flag">{d.flag}</span>
-									<div className="dc-name">{d.name}</div>
-									<div className="dc-cnt">{d.count}</div>
+					<div className="hs-dest-scroll-wrap">
+						<button
+							type="button"
+							className={`hs-dest-scroll-btn hs-dest-scroll-btn-left${hsDestCanScrollLeft ? "" : " s-scroll-btn-hidden"}`}
+							aria-label="Scroll destinations left"
+							aria-hidden={!hsDestCanScrollLeft}
+							onClick={() => scrollHsDest("left")}
+						>
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+								<path d="M15 18l-6-6 6-6" />
+							</svg>
+						</button>
+						<div className="hs-dest-scroll" ref={hsDestScrollRef}>
+							{HS_DESTINATIONS.map((d, i) => (
+								<div key={d.name} className={`dc reveal d${i + 1}`}>
+									<img src={d.img} alt={d.name} />
+									<div className="dc-body">
+										<span className="dc-flag">{d.flag}</span>
+										<div className="dc-name">{d.name}</div>
+										<div className="dc-cnt">{d.count}</div>
+									</div>
 								</div>
-							</div>
-						))}
+							))}
+						</div>
+						<button
+							type="button"
+							className={`hs-dest-scroll-btn hs-dest-scroll-btn-right${hsDestCanScrollRight ? "" : " s-scroll-btn-hidden"}`}
+							aria-label="Scroll destinations right"
+							aria-hidden={!hsDestCanScrollRight}
+							onClick={() => scrollHsDest("right")}
+						>
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+								<path d="M9 18l6-6-6-6" />
+							</svg>
+						</button>
 					</div>
 				</div>
 			</section>

@@ -1,4 +1,54 @@
+import { useEffect, useRef, useState } from "react";
+
+const UG_DEST_SCROLL_STEP = 296;
+const UG_DEST_SCROLL_THRESHOLD = 5;
+
+const UG_DESTINATIONS = [
+  { img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=85&fit=crop", flag: "🇬🇧", name: "United Kingdom", count: "Russell Group & Beyond" },
+  { img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&q=85&fit=crop", flag: "🇺🇸", name: "United States", count: "Ivy League & Top 50" },
+  { img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=800&q=85&fit=crop", flag: "🇨🇦", name: "Canada", count: "U15 & Leading Institutions" },
+  { img: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?w=800&q=85&fit=crop", flag: "🇦🇺", name: "Australia", count: "Group of Eight" },
+  { img: "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=800&q=85&fit=crop", flag: "🇳🇱", name: "Netherlands", count: "Research Universities & Top Rankings" },
+  { img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=85&fit=crop", flag: "🇩🇪", name: "Germany", count: "Excellence Universities & Tuition-Free Options" },
+  { img: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=85&fit=crop", flag: "🇸🇬", name: "Singapore", count: "NUS, NTU & Global Programmes" },
+  { img: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&q=85&fit=crop", flag: "🇳🇿", name: "New Zealand", count: "Top Research & Applied Universities" },
+  { img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=85&fit=crop", flag: "🇦🇪", name: "UAE", count: "Dubai & Abu Dhabi Campuses" },
+  { img: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85&fit=crop", flag: "🇿🇦", name: "South Africa", count: "UCT, Wits & Leading Universities" },
+  { img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=85&fit=crop", flag: "🇫🇷", name: "France", count: "Grandes Écoles & Public Universities" },
+  { img: "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=800&q=85&fit=crop", flag: "🇨🇭", name: "Switzerland", count: "ETH, EPFL & Top-Ranked Institutions" },
+];
+
 function UndergraduatePostgraduate() {
+  const ugDestScrollRef = useRef<HTMLDivElement>(null);
+  const [ugDestCanScrollLeft, setUgDestCanScrollLeft] = useState(false);
+  const [ugDestCanScrollRight, setUgDestCanScrollRight] = useState(false);
+
+  const scrollUgDest = (direction: "left" | "right") => {
+    const el = ugDestScrollRef.current;
+    if (!el) return;
+    el.scrollBy({
+      left: direction === "left" ? -UG_DEST_SCROLL_STEP : UG_DEST_SCROLL_STEP,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const el = ugDestScrollRef.current;
+    if (!el) return;
+    const update = () => {
+      const { scrollLeft, clientWidth, scrollWidth } = el;
+      setUgDestCanScrollLeft(scrollLeft > UG_DEST_SCROLL_THRESHOLD);
+      setUgDestCanScrollRight(scrollLeft + clientWidth < scrollWidth - UG_DEST_SCROLL_THRESHOLD);
+    };
+    update();
+    el.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
     <>
       <section className="mission">
@@ -100,22 +150,41 @@ function UndergraduatePostgraduate() {
               </h2>
             </div>
           </div>
-          <div className="dgrid">
-            {[
-              { img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=85&fit=crop", flag: "🇬🇧", name: "United Kingdom", count: "Russell Group & Beyond" },
-              { img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&q=85&fit=crop", flag: "🇺🇸", name: "United States", count: "Ivy League & Top 50" },
-              { img: "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=800&q=85&fit=crop", flag: "🇨🇦", name: "Canada", count: "U15 & Leading Institutions" },
-              { img: "https://images.unsplash.com/photo-1524293581917-878a6d017c71?w=800&q=85&fit=crop", flag: "🇦🇺", name: "Australia", count: "Group of Eight" },
-            ].map((d, i) => (
-              <div key={i} className={`dc reveal d${i + 1}`}>
-                <img src={d.img} alt={d.name} />
-                <div className="dc-body">
-                  <span className="dc-flag">{d.flag}</span>
-                  <div className="dc-name">{d.name}</div>
-                  <div className="dc-cnt">{d.count}</div>
+          <div className="ug-dest-scroll-wrap">
+            <button
+              type="button"
+              className={`ug-dest-scroll-btn ug-dest-scroll-btn-left${ugDestCanScrollLeft ? "" : " s-scroll-btn-hidden"}`}
+              aria-label="Scroll destinations left"
+              aria-hidden={!ugDestCanScrollLeft}
+              onClick={() => scrollUgDest("left")}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <div className="ug-dest-scroll" ref={ugDestScrollRef}>
+              {UG_DESTINATIONS.map((d, i) => (
+                <div key={d.name} className={`dc reveal d${i + 1}`}>
+                  <img src={d.img} alt={d.name} />
+                  <div className="dc-body">
+                    <span className="dc-flag">{d.flag}</span>
+                    <div className="dc-name">{d.name}</div>
+                    <div className="dc-cnt">{d.count}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button
+              type="button"
+              className={`ug-dest-scroll-btn ug-dest-scroll-btn-right${ugDestCanScrollRight ? "" : " s-scroll-btn-hidden"}`}
+              aria-label="Scroll destinations right"
+              aria-hidden={!ugDestCanScrollRight}
+              onClick={() => scrollUgDest("right")}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
