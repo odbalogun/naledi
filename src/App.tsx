@@ -6,6 +6,7 @@ import HighSchoolPlacement from "./pages/HighSchoolPlacement";
 import UndergraduatePostgraduate from "./pages/UndergraduatePostgraduate";
 import EventsGallery from "./pages/EventsGallery";
 import ContactUs from "./pages/ContactUs";
+import Destinations from "./pages/Destinations";
 import "./App.css";
 
 const ARROW_SVG = (
@@ -126,6 +127,7 @@ function App() {
 			"/undergraduate-postgraduate",
 			"/events-gallery",
 			"/contact-us",
+			"/destinations",
 		].includes(location.pathname);
 		const onScroll = () => {
 			nav.classList.toggle("solid", isSolidNav || window.scrollY > 60);
@@ -747,6 +749,7 @@ function App() {
 					<Route path="about" element={<About />} />
 					<Route path="high-school-placement" element={<HighSchoolPlacement />} />
 					<Route path="undergraduate-postgraduate" element={<UndergraduatePostgraduate />} />
+					<Route path="destinations" element={<Destinations />} />
 					<Route path="events-gallery" element={<EventsGallery />} />
 					<Route path="contact-us" element={<ContactUs />} />
 				</Route>

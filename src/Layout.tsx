@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
 
 const LOGO_SVG = (
@@ -11,38 +12,59 @@ const LOGO_SVG = (
 );
 
 function Layout() {
+	const [isNavOpen, setIsNavOpen] = useState(false);
+
+	const closeNav = () => setIsNavOpen(false);
+
 	return (
 		<>
 			<nav id="nav">
-				<Link className="logo" to="/">
+				<Link className="logo" to="/" onClick={closeNav}>
 					{LOGO_SVG}
 					<div>
 						<span className="logo-name">Naledi</span>
 						<span className="logo-sub">Educational Consulting</span>
 					</div>
 				</Link>
-				<ul className="nav-links">
+				<button
+					type="button"
+					className={`nav-toggle${isNavOpen ? " open" : ""}`}
+					aria-label="Toggle navigation menu"
+					aria-expanded={isNavOpen}
+					onClick={() => setIsNavOpen((open) => !open)}
+				>
+					<span />
+					<span />
+					<span />
+				</button>
+				<ul className={`nav-links${isNavOpen ? " nav-links-open" : ""}`}>
 					<li>
-						<NavLink to="/about" end>
+						<NavLink to="/about" end onClick={closeNav}>
 							About
 						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/high-school-placement">High School Placement</NavLink>
+						<NavLink to="/high-school-placement" onClick={closeNav}>
+							High School Placement
+						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/undergraduate-postgraduate">
+						<NavLink to="/undergraduate-postgraduate" onClick={closeNav}>
 							Undergraduate &amp; Graduate
 						</NavLink>
 					</li>
 					<li>
-						<Link to="/#destinations">Destinations</Link>
+						<NavLink to="/destinations" onClick={closeNav}>
+							Destinations
+						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/events-gallery">Events</NavLink>
+						<NavLink to="/events-gallery" onClick={closeNav}>
+							Events
+						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/contact-us" className="nav-btn">
+						<NavLink to="/contact-us" className="nav-btn" onClick={closeNav}>
 							Get in Touch
 						</NavLink>
 					</li>
