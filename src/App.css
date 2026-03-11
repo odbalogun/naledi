@@ -358,6 +358,7 @@ nav.solid {
 .dest-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; align-items: center; }
 .dest-hero-image { border-radius: 6px; overflow: hidden; box-shadow: 0 8px 24px rgba(22,43,87,.12); }
 .dest-hero-image img { width: 100%; height: 280px; object-fit: cover; display: block; }
+.dest-hero-content { display: flex; flex-direction: column; justify-content: center; }
 .dest-hero-content h2 { font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 14px; line-height: 1.4; }
 .dest-hero-content p { color: var(--mid); line-height: 1.82; margin-bottom: 12px; font-weight: 300; }
 .dest-hero-content p:last-child { margin-bottom: 0; }
