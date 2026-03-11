@@ -315,6 +315,24 @@ function Destinations() {
 					</p>
 				</div>
 
+				<div className="dest-hero">
+					<div className="dest-hero-content">
+						<p>
+							Naledi has helped students discover world-class educational
+							opportunities across the globe. From historic British boarding
+							schools to innovative programs in North America, Australia, and
+							beyond, we guide families every step of the way.
+						</p>
+						<p>
+							Select a country below to explore visa requirements, intake
+							periods, and our partner institutions in that destination.
+						</p>
+					</div>
+					<div className="dest-hero-image">
+						<img src="/images/hero_img_bg.png" alt="Students studying abroad" />
+					</div>
+				</div>
+
 				<div className="destinations-accordion">
 					{DESTINATIONS.map((d) => {
 						const isOpen = openSlug === d.slug;
