@@ -78,10 +78,34 @@ const UG_DESTINATIONS = [
 	},
 ];
 
+const UG_FAQ = [
+	{
+		q: "When should I start my university application?",
+		a: "For undergraduate applications, we recommend starting 12–18 months before your target intake. Many universities (especially in the UK and US) have early deadlines. For postgraduate programmes, 9–12 months ahead is typical. PhD applications often require 12–18 months due to research proposal development and supervisor matching.",
+	},
+	{
+		q: "Do you help with scholarships and funding?",
+		a: "Yes. We identify scholarship opportunities (merit-based, need-based, and country-specific) at our partner universities. We guide you through application requirements, essay prompts, and deadlines. For postgraduate study, we also advise on research funding, teaching assistantships, and external grants.",
+	},
+	{
+		q: "Can you help with both undergraduate and postgraduate applications?",
+		a: "Absolutely. We support students at every level — from first degrees (BA, BSc, BEng) to master's (MA, MSc, MBA, LLM) and doctoral programmes (MPhil, PhD). Each level has different requirements; we tailor our support accordingly.",
+	},
+	{
+		q: "What if my academic background is non-standard?",
+		a: "We work with students from diverse educational systems. Whether you're transitioning from a local curriculum, have gap years, or are changing fields at postgraduate level, we help you present your profile clearly and address any concerns admissions committees might have.",
+	},
+	{
+		q: "How do you support PhD and research applicants?",
+		a: "For research programmes, we help you identify suitable supervisors, refine your research proposal, and navigate the application process. We advise on funding options, interview preparation, and what admissions panels look for in strong research candidates.",
+	},
+];
+
 function UndergraduatePostgraduate() {
 	const ugDestScrollRef = useRef<HTMLDivElement>(null);
 	const [ugDestCanScrollLeft, setUgDestCanScrollLeft] = useState(false);
 	const [ugDestCanScrollRight, setUgDestCanScrollRight] = useState(false);
+	const [ugFaqOpen, setUgFaqOpen] = useState<number | null>(null);
 
 	const scrollUgDest = (direction: "left" | "right") => {
 		const el = ugDestScrollRef.current;
@@ -274,6 +298,48 @@ function UndergraduatePostgraduate() {
 								<path d="M9 18l6-6-6-6" />
 							</svg>
 						</button>
+					</div>
+				</div>
+			</section>
+
+			{/* FAQ */}
+			<section className="services">
+				<div className="si">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>FAQs</span>
+							</div>
+							<h2 className="ttl">
+								University Placement <i>Questions</i>
+							</h2>
+						</div>
+					</div>
+					<div className="faq-list">
+						{UG_FAQ.map((item, i) => (
+							<div
+								key={i}
+								className={`faq-item${ugFaqOpen === i ? " open" : ""}`}
+							>
+								<button
+									type="button"
+									className="faq-header"
+									onClick={() => setUgFaqOpen(ugFaqOpen === i ? null : i)}
+									aria-expanded={ugFaqOpen === i}
+								>
+									<span className="faq-q">{item.q}</span>
+									<span className="faq-chevron">
+										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</span>
+								</button>
+								<div className="faq-content">
+									<p className="faq-a">{item.a}</p>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</section>

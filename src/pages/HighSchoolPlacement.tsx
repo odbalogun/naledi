@@ -78,10 +78,34 @@ const HS_DESTINATIONS = [
 	},
 ];
 
+const HS_FAQ = [
+	{
+		q: "When should we start the high school placement process?",
+		a: "We recommend starting at least 12–18 months before your target intake (typically September). This gives time for school research, applications, entrance tests, interviews, and visa preparation. For highly selective schools, earlier engagement can be beneficial.",
+	},
+	{
+		q: "Do you only work with top academic achievers?",
+		a: "No. We work with students across a range of academic profiles. Our focus is on fit — finding schools where each student can thrive academically, socially, and personally. We support both strong performers and students still discovering their strengths.",
+	},
+	{
+		q: "How do you help with scholarships and financial aid?",
+		a: "We identify scholarship and bursary opportunities at our partner schools and guide families through application requirements. We also help you understand total costs (tuition, boarding, extras) so you can plan realistically and compare offers.",
+	},
+	{
+		q: "What if my child needs support with visas or English?",
+		a: "We support visa applications end-to-end, from documentation to embassy preparation. For English proficiency, we can recommend preparation pathways and, where needed, schools that offer English language support alongside their main curriculum.",
+	},
+	{
+		q: "Can we choose between boarding and day schools?",
+		a: "Yes. We present options across both boarding and day schools, depending on your preferences, location, and budget. Many families consider both; we help you weigh the pros and cons for your situation.",
+	},
+];
+
 function HighSchoolPlacement() {
 	const hsDestScrollRef = useRef<HTMLDivElement>(null);
 	const [hsDestCanScrollLeft, setHsDestCanScrollLeft] = useState(false);
 	const [hsDestCanScrollRight, setHsDestCanScrollRight] = useState(false);
+	const [hsFaqOpen, setHsFaqOpen] = useState<number | null>(null);
 
 	const scrollHsDest = (direction: "left" | "right") => {
 		const el = hsDestScrollRef.current;
@@ -147,23 +171,21 @@ function HighSchoolPlacement() {
 							</h2>
 							<br />
 							<p>
-								As an agent to foreign schools – boarding and day – colleges and
-								universities, we oversee the entire journey from a
-								student&apos;s first enquiry to their arrival at a new campus.
+								We represent foreign boarding schools, day schools, colleges and
+								universities, guiding families from the first enquiry through to
+								a student’s arrival on campus.
 							</p>
 							<p>
 								We work with families across Nigeria, Ghana and the wider
-								African continent who are exploring high-school options abroad
-								for their children, typically between the ages of 10 and 18.
+								African continent seeking high-school options abroad for their
+								children, typically between the ages of 10 and 18.
 							</p>
 							<p>
-								Some students are moving directly from local curricula into
-								IGCSE, IB, A-Levels or the US High School Diploma. Others are
-								already in international schools but seeking a more rigorous or
-								specialised environment. Whether your child is a top academic
-								performer, a quietly gifted all-rounder or still discovering
-								their strengths, our role is to help you find the right school,
-								not just the most famous name.
+								Students may be transitioning from local curricula to IGCSE, IB,
+								A-Levels or the US High School Diploma, or moving from
+								international schools to more rigorous environments. Our role is
+								to help you find the school that truly fits your child; not just
+								the most well-known one.
 							</p>
 							<p>
 								We focus on fit — academically, socially, and pastorally — so
@@ -557,8 +579,59 @@ function HighSchoolPlacement() {
 				</div>
 			</section>
 
+			{/* FAQ */}
+			<section className="services">
+				<div className="si">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>FAQs</span>
+							</div>
+							<h2 className="ttl">
+								High School Placement <i>Questions</i>
+							</h2>
+						</div>
+					</div>
+					<div className="faq-list">
+						{HS_FAQ.map((item, i) => (
+							<div
+								key={i}
+								className={`faq-item${hsFaqOpen === i ? " open" : ""}`}
+							>
+								<button
+									type="button"
+									className="faq-header"
+									onClick={() => setHsFaqOpen(hsFaqOpen === i ? null : i)}
+									aria-expanded={hsFaqOpen === i}
+								>
+									<span className="faq-q">{item.q}</span>
+									<span className="faq-chevron">
+										<svg
+											width="20"
+											height="20"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										>
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</span>
+								</button>
+								<div className="faq-content">
+									<p className="faq-a">{item.a}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+
 			{/* CTA to contact */}
-			<section className="bg-white">
+			<section className="bg-sand">
 				<div className="si">
 					<div
 						className="m-copy reveal d2"

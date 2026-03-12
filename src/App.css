@@ -320,6 +320,31 @@ nav.solid {
 .sv h4 { font-size: .93rem; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
 .sv p { font-size: .8rem; color: var(--mid); line-height: 1.7; font-weight: 300; }
 
+/* FAQ */
+.faq-list { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.faq-item { background: #fff; border-radius: 6px; box-shadow: 0 2px 12px rgba(22,43,87,.06); overflow: hidden; border: 1px solid rgba(22,43,87,.06); }
+.faq-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background .2s;
+}
+.faq-header:hover { background: rgba(22,43,87,.02); }
+.faq-q { font-size: .95rem; font-weight: 500; color: var(--ink); line-height: 1.4; flex: 1; }
+.faq-chevron { color: var(--gold); flex-shrink: 0; transition: transform .3s ease; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-content { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.faq-item.open .faq-content { max-height: 1200px; }
+.faq-a { padding: 0 22px 20px; font-size: .9rem; color: var(--mid); line-height: 1.75; font-weight: 300; margin: 0; }
+
 /* DESTINATIONS */
 .destinations { background: var(--sand); }
 .destinations-high-school { background: var(--white);}
