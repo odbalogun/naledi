@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Link } from "react-router-dom";
 import Layout from "./Layout";
 import About from "./pages/About";
 import HighSchoolPlacement from "./pages/HighSchoolPlacement";
@@ -79,15 +79,6 @@ const ICONS = {
 		</svg>
 	),
 };
-
-function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>) {
-	const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
-	if (href?.startsWith("#")) {
-		e.preventDefault();
-		const target = document.querySelector(href);
-		if (target) target.scrollIntoView({ behavior: "smooth" });
-	}
-}
 
 const SCROLL_STEP = 320; // card width (300) + gap (20)
 
@@ -567,9 +558,9 @@ function App() {
 													Top <i>Destinations</i>
 												</h2>
 											</div>
-											<a href="#cta" onClick={scrollToSection}>
+											<Link to="/destinations">
 												Explore All Schools {ARROW_SVG}
-											</a>
+											</Link>
 										</div>
 										<div className="dgrid">
 											{[
