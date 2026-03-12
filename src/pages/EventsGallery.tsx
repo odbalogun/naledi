@@ -1,13 +1,19 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type UpcomingEvent = {
 	tag: string;
 	title: string;
-	date: string; // ISO date for sorting
+	date: string;
 	dateLabel: string;
 	location: string;
 	meta: string;
 	copy: string;
+};
+
+type PastEventImage = {
+	url: string;
+	caption: string;
 };
 
 type PastEvent = {
@@ -17,7 +23,7 @@ type PastEvent = {
 	location: string;
 	meta: string;
 	copy: string;
-	images: string[];
+	images: PastEventImage[];
 	details: string;
 };
 
@@ -61,9 +67,18 @@ function EventsGallery() {
 			meta: "5 visiting schools · One-on-one meetings",
 			copy: "Admissions teams from leading schools met prospective students and families for consultations and interviews.",
 			images: [
-				"https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1200&q=85&fit=crop&crop=center",
-				"https://images.unsplash.com/photo-1523580846011-63c4c04045b8?w=1200&q=85&fit=crop&crop=center",
-				"https://images.unsplash.com/photo-1523580846011-43a03dd88a4f?w=1200&q=85&fit=crop&crop=center",
+				{
+					url: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=1200&q=85&fit=crop&crop=center",
+					caption: "Families meeting with admissions representatives",
+				},
+				{
+					url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=85&fit=crop&crop=center",
+					caption: "Students and parents in discussion",
+				},
+				{
+					url: "https://images.unsplash.com/photo-1523580846011-43a03dd88a4f?w=1200&q=85&fit=crop&crop=center",
+					caption: "One-on-one school consultations",
+				},
 			],
 			details:
 				"This showcase brought together partner schools from the UK and Canada to meet families from across Accra. Students had the chance to discuss programmes, scholarships, and campus life directly with admissions representatives.",
@@ -76,9 +91,18 @@ function EventsGallery() {
 			meta: "3-day intensive · Ages 13–18",
 			copy: "Hands-on coaching on interviews, essays, and storytelling — helping students present their authentic strengths.",
 			images: [
-				"https://images.unsplash.com/photo-1523580846011-4d01a47c1c5b?w=1200&q=85&fit=crop&crop=center",
-				"https://images.unsplash.com/photo-1523580846011-a8cbe2c6f7b9?w=1200&q=85&fit=crop&crop=center",
-				"https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=85&fit=crop&crop=center",
+				{
+					url: "https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=1200&q=85&fit=crop&crop=center",
+					caption: "Students working on essay drafts",
+				},
+				{
+					url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=85&fit=crop&crop=center",
+					caption: "Group discussion and peer review",
+				},
+				{
+					url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=85&fit=crop&crop=center",
+					caption: "Mock interview practice",
+				},
 			],
 			details:
 				"Over three days, students completed mock interviews, essay drafts, and peer review exercises with support from Naledi consultants, building confidence ahead of real admissions conversations.",
@@ -87,6 +111,14 @@ function EventsGallery() {
 
 	const [activeEvent, setActiveEvent] = useState<PastEvent | null>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [rsvpEvent, setRsvpEvent] = useState<UpcomingEvent | null>(null);
+	const [rsvpForm, setRsvpForm] = useState({
+		name: "",
+		phone: "",
+		email: "",
+		message: "",
+	});
+	const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
 
 	const sortedUpcoming = [...upcomingEvents].sort((a, b) =>
 		a.date.localeCompare(b.date),
@@ -114,6 +146,24 @@ function EventsGallery() {
 		setActiveIndex((prev) =>
 			prev === 0 ? activeEvent.images.length - 1 : prev - 1,
 		);
+	};
+
+	const openRsvpModal = (ev: UpcomingEvent) => {
+		setRsvpEvent(ev);
+		setRsvpForm({ name: "", phone: "", email: "", message: "" });
+		setRsvpSubmitted(false);
+		document.body.style.overflow = "hidden";
+	};
+
+	const closeRsvpModal = () => {
+		setRsvpEvent(null);
+		document.body.style.overflow = "";
+	};
+
+	const handleRsvpSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		// In production, would POST to API
+		setRsvpSubmitted(true);
 	};
 
 	return (
@@ -163,6 +213,13 @@ function EventsGallery() {
 									</div>
 									<p className="event-copy">{ev.copy}</p>
 									<div className="event-meta">{ev.meta}</div>
+									<button
+										type="button"
+										className="event-rsvp-btn"
+										onClick={() => openRsvpModal(ev)}
+									>
+										RSVP
+									</button>
 								</div>
 							</li>
 						))}
@@ -198,7 +255,7 @@ function EventsGallery() {
 								onClick={() => openModal(ev)}
 							>
 								<div className="event-card-img-wrap">
-									<img src={ev.images[0]} alt={ev.title} />
+									<img src={ev.images[0].url} alt={ev.title} />
 								</div>
 								<div className="event-card-overlay">
 									<div className="event-tag">{ev.tag}</div>
@@ -229,18 +286,28 @@ function EventsGallery() {
 							Be Part of Our Next <i>Event</i>
 						</h2>
 						<p>
-							If you&apos;d like to be invited to upcoming Naledi events or
-							book a private consultation, we&apos;d love to hear from you.
+							If you&apos;d like to be invited to upcoming Naledi events or book
+							a private consultation, we&apos;d love to hear from you.
 						</p>
-						<a href="/contact-us" className="btn-fill" style={{ marginTop: 24 }}>
+						<Link
+							to="/contact-us"
+							className="btn-fill"
+							style={{ marginTop: 24 }}
+						>
 							Talk To Us
-						</a>
+						</Link>
 					</div>
 				</div>
 			</section>
 
 			{activeEvent && (
-				<div className="event-modal" onClick={closeModal}>
+				<div
+					className="event-modal"
+					onClick={closeModal}
+					role="dialog"
+					aria-modal="true"
+					aria-labelledby="event-modal-title"
+				>
 					<div
 						className="event-modal-inner"
 						onClick={(e) => e.stopPropagation()}
@@ -249,37 +316,200 @@ function EventsGallery() {
 							type="button"
 							className="event-modal-close"
 							onClick={closeModal}
-							aria-label="Close"
+							aria-label="Close modal"
 						>
-							×
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							>
+								<path d="M18 6L6 18M6 6l12 12" />
+							</svg>
 						</button>
-						<div className="event-modal-img-wrap">
-							<img
-								src={activeEvent.images[activeIndex]}
-								alt={activeEvent.title}
-							/>
-							{activeEvent.images.length > 1 && (
-								<div className="event-modal-nav">
-									<button type="button" onClick={prevImage}>
-										‹
-									</button>
-									<span>
-										{activeIndex + 1} / {activeEvent.images.length}
-									</span>
-									<button type="button" onClick={nextImage}>
-										›
-									</button>
+						<div className="event-modal-content">
+							<div className="event-modal-gallery">
+								<div className="event-modal-main-img">
+									<img
+										src={activeEvent.images[activeIndex].url}
+										alt={`${activeEvent.title} — ${activeEvent.images[activeIndex].caption}`}
+									/>
 								</div>
-							)}
-						</div>
-						<div className="event-modal-body">
-							<div className="event-tag">{activeEvent.tag}</div>
-							<h3 className="event-title">{activeEvent.title}</h3>
-							<div className="event-date">
-								{activeEvent.date} · {activeEvent.location}
+								{activeEvent.images.length > 1 && (
+									<>
+										<button
+											type="button"
+											className="event-modal-arrow event-modal-prev"
+											onClick={prevImage}
+											aria-label="Previous image"
+										>
+											<svg
+												width="20"
+												height="20"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M15 18l-6-6 6-6" />
+											</svg>
+										</button>
+										<button
+											type="button"
+											className="event-modal-arrow event-modal-next"
+											onClick={nextImage}
+											aria-label="Next image"
+										>
+											<svg
+												width="20"
+												height="20"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<path d="M9 18l6-6-6-6" />
+											</svg>
+										</button>
+										<div className="event-modal-dots">
+											{activeEvent.images.map((_, i) => (
+												<button
+													key={i}
+													type="button"
+													className={`event-modal-dot${i === activeIndex ? " active" : ""}`}
+													onClick={() => setActiveIndex(i)}
+													aria-label={`View image ${i + 1}: ${activeEvent.images[i].caption}`}
+												/>
+											))}
+										</div>
+									</>
+								)}
+								<div className="event-modal-caption">
+									{activeEvent.images[activeIndex].caption}
+								</div>
 							</div>
-							<p className="event-copy">{activeEvent.details}</p>
-							<div className="event-meta">{activeEvent.meta}</div>
+							<div className="event-modal-detail">
+								<span className="event-modal-tag">{activeEvent.tag}</span>
+								<h2 id="event-modal-title" className="event-modal-title">
+									{activeEvent.title}
+								</h2>
+								<p className="event-modal-meta">
+									{activeEvent.date} · {activeEvent.location}
+								</p>
+								<p className="event-modal-details">{activeEvent.details}</p>
+								<p className="event-modal-extra">{activeEvent.meta}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+
+			{rsvpEvent && (
+				<div
+					className="event-modal rsvp-modal"
+					onClick={closeRsvpModal}
+					role="dialog"
+					aria-modal="true"
+					aria-labelledby="rsvp-modal-title"
+				>
+					<div
+						className="event-modal-inner rsvp-modal-inner"
+						onClick={(e) => e.stopPropagation()}
+					>
+						<button
+							type="button"
+							className="event-modal-close"
+							onClick={closeRsvpModal}
+							aria-label="Close RSVP modal"
+						>
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							>
+								<path d="M18 6L6 18M6 6l12 12" />
+							</svg>
+						</button>
+						<div className="rsvp-modal-content">
+							<h2 id="rsvp-modal-title" className="rsvp-modal-title">
+								RSVP — {rsvpEvent.title}
+							</h2>
+							<p className="rsvp-modal-meta">
+								{rsvpEvent.dateLabel} · {rsvpEvent.location}
+							</p>
+							{rsvpSubmitted ? (
+								<div className="rsvp-success">
+									<p>
+										Thank you for your RSVP. We&apos;ll be in touch with
+										confirmation details shortly.
+									</p>
+								</div>
+							) : (
+								<form className="rsvp-form" onSubmit={handleRsvpSubmit}>
+									<label>
+										<span>Name</span>
+										<input
+											type="text"
+											required
+											value={rsvpForm.name}
+											onChange={(e) =>
+												setRsvpForm((f) => ({ ...f, name: e.target.value }))
+											}
+											placeholder="Your full name"
+										/>
+									</label>
+									<label>
+										<span>Email</span>
+										<input
+											type="email"
+											required
+											value={rsvpForm.email}
+											onChange={(e) =>
+												setRsvpForm((f) => ({ ...f, email: e.target.value }))
+											}
+											placeholder="your@email.com"
+										/>
+									</label>
+									<label>
+										<span>Phone</span>
+										<input
+											type="tel"
+											value={rsvpForm.phone}
+											onChange={(e) =>
+												setRsvpForm((f) => ({ ...f, phone: e.target.value }))
+											}
+											placeholder="+234 800 000 0000"
+										/>
+									</label>
+									<label>
+										<span>Message (optional)</span>
+										<textarea
+											rows={3}
+											value={rsvpForm.message}
+											onChange={(e) =>
+												setRsvpForm((f) => ({ ...f, message: e.target.value }))
+											}
+											placeholder="Any dietary requirements, questions, or additional guests?"
+										/>
+									</label>
+									<button type="submit" className="event-rsvp-btn">
+										Submit RSVP
+									</button>
+								</form>
+							)}
 						</div>
 					</div>
 				</div>

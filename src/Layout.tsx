@@ -59,7 +59,7 @@ function Layout() {
 						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/events-gallery" onClick={closeNav}>
+						<NavLink to="/events" onClick={closeNav}>
 							Events
 						</NavLink>
 					</li>
@@ -135,7 +135,7 @@ function Layout() {
 								<Link to="/about">About Naledi</Link>
 							</li>
 							<li>
-								<Link to="/events-gallery">Events</Link>
+								<Link to="/events">Events</Link>
 							</li>
 							<li>
 								<Link to="/contact-us">Contact Us</Link>

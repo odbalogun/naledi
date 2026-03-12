@@ -106,7 +106,9 @@ function App() {
 		const update = () => {
 			const { scrollLeft, clientWidth, scrollWidth } = el;
 			setStoriesCanScrollLeft(scrollLeft > SCROLL_THRESHOLD);
-			setStoriesCanScrollRight(scrollLeft + clientWidth < scrollWidth - SCROLL_THRESHOLD);
+			setStoriesCanScrollRight(
+				scrollLeft + clientWidth < scrollWidth - SCROLL_THRESHOLD,
+			);
 		};
 		update();
 		el.addEventListener("scroll", update);
@@ -150,7 +152,7 @@ function App() {
 			"/about",
 			"/high-school-placement",
 			"/undergraduate-postgraduate",
-			"/events-gallery",
+			"/events",
 			"/contact-us",
 			"/destinations",
 		].includes(location.pathname);
@@ -386,7 +388,16 @@ function App() {
 												aria-hidden={!storiesCanScrollLeft}
 												onClick={() => scrollStories("left")}
 											>
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+												<svg
+													width="24"
+													height="24"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+												>
 													<path d="M15 18l-6-6 6-6" />
 												</svg>
 											</button>
@@ -446,7 +457,16 @@ function App() {
 												aria-hidden={!storiesCanScrollRight}
 												onClick={() => scrollStories("right")}
 											>
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+												<svg
+													width="24"
+													height="24"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+												>
 													<path d="M9 18l6-6-6-6" />
 												</svg>
 											</button>
@@ -834,7 +854,7 @@ function App() {
 						element={<UndergraduatePostgraduate />}
 					/>
 					<Route path="destinations" element={<Destinations />} />
-					<Route path="events-gallery" element={<EventsGallery />} />
+					<Route path="events" element={<EventsGallery />} />
 					<Route path="contact-us" element={<ContactUs />} />
 				</Route>
 			</Routes>
