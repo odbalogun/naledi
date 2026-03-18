@@ -417,6 +417,82 @@ function HighSchoolPlacement() {
 				</div>
 			</section>
 
+			{/* Accommodation & Pastoral Care */}
+			<section className="services">
+				<div className="si">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>Living &amp; Support</span>
+							</div>
+							<h2 className="ttl">
+								Accommodation &amp; <i>Pastoral Care</i>
+							</h2>
+						</div>
+						<p>
+							We help arrange safe, supervised living options so your child is
+							supported around the clock. Every placement is matched to the
+							school and your family&apos;s preferences.
+						</p>
+					</div>
+					<div className="pillars">
+						<div className="pil reveal d1">
+							<span>🏠</span>
+							<h4>On-Campus Boarding</h4>
+							<p>
+								Many of our partner schools offer on-campus boarding with
+								house parents, dedicated pastoral staff, and structured routines.
+								Students live in houses or dormitories on school grounds, with
+								meals, study support, and activities built in. Ideal for
+								families who want everything in one place with strong
+								supervision.
+							</p>
+						</div>
+						<div className="pil reveal d2">
+							<span>🏢</span>
+							<h4>Off-Campus Residences</h4>
+							<p>
+								Some schools use supervised off-campus residences or
+								partner-owned accommodation, with transport to and from campus.
+								These options still provide oversight, curfews, and pastoral
+								check-ins while giving older students more independence. We
+								only recommend vetted, school-approved arrangements.
+							</p>
+						</div>
+						<div className="pil reveal d3">
+							<span>👨‍👩‍👧</span>
+							<h4>Homestay</h4>
+							<p>
+								Homestay places students with carefully selected host families
+								near the school. Families are vetted for safety, warmth, and
+								ability to support international students. Homestay can offer
+								a home-away-from-home, cultural immersion, and often meals and
+								transport. We work with schools and agencies that inspect and
+								monitor placements.
+							</p>
+						</div>
+					</div>
+					<p
+						className="reveal"
+						style={{
+							marginTop: 28,
+							maxWidth: 720,
+							fontSize: ".92rem",
+							color: "var(--mid)",
+							lineHeight: 1.75,
+							fontWeight: 300,
+						}}
+					>
+						Across all options, we prioritise pastoral care: someone your child
+						can turn to for wellbeing, discipline, and day-to-day support. We
+						help you understand each school&apos;s approach to safeguarding,
+						mental health, and communication with parents so you can choose with
+						confidence.
+					</p>
+				</div>
+			</section>
+
 			{/* High school process – timeline style */}
 			<section className="process">
 				<div className="si">
@@ -481,6 +557,111 @@ function HighSchoolPlacement() {
 								</div>
 							</div>
 						))}
+					</div>
+				</div>
+			</section>
+
+			{/* Scholarships */}
+			<section className="mission" style={{ background: "#fff" }}>
+				<div className="si">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>Funding &amp; Aid</span>
+							</div>
+							<h2 className="ttl">
+								Scholarships &amp; <i>Financial Support</i>
+							</h2>
+						</div>
+						<p>
+							Many of our partner schools offer significant financial support.
+							We help you identify and apply for awards that match your
+							child&apos;s profile.
+						</p>
+					</div>
+					<div
+						className="reveal"
+						style={{
+							textAlign: "center",
+							marginBottom: 40,
+							padding: "20px 24px",
+							background: "var(--sand)",
+							borderRadius: 8,
+							maxWidth: 480,
+							marginLeft: "auto",
+							marginRight: "auto",
+						}}
+					>
+						<span
+							style={{
+								fontFamily: "'Fraunces', serif",
+								fontSize: "2rem",
+								fontWeight: 600,
+								color: "var(--gold)",
+							}}
+						>
+							Up to 80% scholarships
+						</span>
+						<p
+							style={{
+								margin: "8px 0 0",
+								fontSize: ".9rem",
+								color: "var(--mid)",
+								fontWeight: 300,
+							}}
+						>
+							available at select schools, depending on merit, need, and
+							programme.
+						</p>
+					</div>
+					<div className="pillars hs-scholarship-pillars">
+						<div className="pil reveal d1">
+							<span>🎯</span>
+							<h4>Merit-Based</h4>
+							<p>
+								Awarded for overall excellence: strong grades, leadership,
+								character, and contribution to school life. Applications often
+								include essays, references, and interviews. We help students
+								present their best case and target schools where their profile
+								aligns with scholarship criteria.
+							</p>
+						</div>
+						<div className="pil reveal d2">
+							<span>⚽</span>
+							<h4>Sport-Based</h4>
+							<p>
+								For students who excel in sport, many schools offer athletic
+								scholarships or bursaries in football, tennis, swimming,
+								athletics, and other disciplines. Coaches and admissions work
+								together; we help families showcase sporting achievement and
+								potential and connect with the right programmes.
+							</p>
+						</div>
+						<div className="pil reveal d3">
+							<span>💙</span>
+							<h4>Need-Based (Economic)</h4>
+							<p>
+								Bursaries and need-based awards reduce fees for families who
+								cannot afford full tuition. Schools typically require
+								confidential financial information and may offer partial
+								support (e.g. 20–80%). We guide you through evidence
+								requirements and realistic expectations by school and
+								destination.
+							</p>
+						</div>
+						<div className="pil reveal d4">
+							<span>📚</span>
+							<h4>Academic-Based</h4>
+							<p>
+								Recognising top academic performance, often in specific
+								subjects or entrance assessments. These scholarships reward
+								grades, test scores, and intellectual curiosity. We help
+								students prepare for relevant exams and present their academic
+								record clearly so schools can consider them for academic
+								awards.
+							</p>
+						</div>
 					</div>
 				</div>
 			</section>

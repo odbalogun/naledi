@@ -270,6 +270,8 @@ nav.solid {
 .pil span { font-size: 1.4rem; display: block; margin-bottom: 7px; }
 .pil h4 { font-size: .77rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
 .pil p { font-size: .71rem; color: var(--mid); font-weight: 300; line-height: 1.5; }
+.hs-scholarship-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.hs-scholarship-pillars .pil { flex: none; }
 
 /* STORIES */
 .stories { background: var(--ink); padding: 80px 0; overflow: hidden; }
@@ -1362,6 +1364,11 @@ footer { background: var(--ink2); }
   .camp-section-img img{height:260px}
   .sport-cards{grid-template-columns:1fr}
   .sport-cards-winter{margin-top:0}
+  .hs-scholarship-pillars{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:640px){
+  .hs-scholarship-pillars{grid-template-columns:1fr}
 }
 
 @media(max-width:960px){
