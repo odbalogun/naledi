@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 type UpcomingEvent = {
@@ -31,7 +31,7 @@ function EventsGallery() {
 	const upcomingEvents: UpcomingEvent[] = [
 		{
 			tag: "Upcoming",
-			title: "UK Boarding School Information Evening — Lagos",
+			title: "UK Boarding School Information Evening - Lagos",
 			date: "2026-04-12",
 			dateLabel: "12 April 2026",
 			location: "Victoria Island, Lagos",
@@ -40,7 +40,7 @@ function EventsGallery() {
 		},
 		{
 			tag: "Upcoming",
-			title: "Undergraduate & Postgraduate Pathways Webinar — Virtual",
+			title: "Undergraduate & Postgraduate Pathways Webinar - Virtual",
 			date: "2026-05-04",
 			dateLabel: "4 May 2026",
 			location: "Online (Zoom)",
@@ -49,7 +49,7 @@ function EventsGallery() {
 		},
 		{
 			tag: "Upcoming",
-			title: "Admissions Interview Prep Workshop — Accra",
+			title: "Admissions Interview Prep Workshop - Accra",
 			date: "2026-06-18",
 			dateLabel: "18 June 2026",
 			location: "Airport Residential Area, Accra",
@@ -61,7 +61,7 @@ function EventsGallery() {
 	const pastHighlights: PastEvent[] = [
 		{
 			tag: "Highlight",
-			title: "Partner School Showcase — Accra",
+			title: "Partner School Showcase - Accra",
 			date: "October 2025",
 			location: "Accra",
 			meta: "5 visiting schools · One-on-one meetings",
@@ -85,7 +85,7 @@ function EventsGallery() {
 		},
 		{
 			tag: "Highlight",
-			title: "Interview & Essay Prep Bootcamp — Virtual",
+			title: "Interview & Essay Prep Bootcamp - Virtual",
 			date: "January 2026",
 			location: "Online",
 			meta: "3-day intensive · Ages 13–18",
@@ -105,7 +105,7 @@ function EventsGallery() {
 				},
 			],
 			details:
-				"Over three days, students completed mock interviews, essay drafts, and peer review exercises with support from Naledi consultants, building confidence ahead of real admissions conversations.",
+				"Over three days, students completed mock interviews, essay drafts, and peer review exercises with support from Naledi Education consultants, building confidence ahead of real admissions conversations.",
 		},
 	];
 
@@ -124,16 +124,22 @@ function EventsGallery() {
 		a.date.localeCompare(b.date),
 	);
 
+	useEffect(() => {
+		const anyModalOpen = Boolean(activeEvent || rsvpEvent);
+		document.body.style.overflow = anyModalOpen ? "hidden" : "";
+		return () => {
+			document.body.style.overflow = "";
+		};
+	}, [activeEvent, rsvpEvent]);
+
 	const openModal = (event: PastEvent) => {
 		setActiveEvent(event);
 		setActiveIndex(0);
-		document.body.style.overflow = "hidden";
 	};
 
 	const closeModal = () => {
 		setActiveEvent(null);
 		setActiveIndex(0);
-		document.body.style.overflow = "";
 	};
 
 	const nextImage = () => {
@@ -152,12 +158,10 @@ function EventsGallery() {
 		setRsvpEvent(ev);
 		setRsvpForm({ name: "", phone: "", email: "", message: "" });
 		setRsvpSubmitted(false);
-		document.body.style.overflow = "hidden";
 	};
 
 	const closeRsvpModal = () => {
 		setRsvpEvent(null);
-		document.body.style.overflow = "";
 	};
 
 	const handleRsvpSubmit = (e: React.FormEvent) => {
@@ -286,8 +290,8 @@ function EventsGallery() {
 							Be Part of Our Next <i>Event</i>
 						</h2>
 						<p>
-							If you&apos;d like to be invited to upcoming Naledi events or book
-							a private consultation, we&apos;d love to hear from you.
+							If you&apos;d like to be invited to upcoming events or book a
+							private consultation, we&apos;d love to hear from you.
 						</p>
 						<Link
 							to="/contact-us"
@@ -336,7 +340,7 @@ function EventsGallery() {
 								<div className="event-modal-main-img">
 									<img
 										src={activeEvent.images[activeIndex].url}
-										alt={`${activeEvent.title} — ${activeEvent.images[activeIndex].caption}`}
+										alt={`${activeEvent.title} - ${activeEvent.images[activeIndex].caption}`}
 									/>
 								</div>
 								{activeEvent.images.length > 1 && (

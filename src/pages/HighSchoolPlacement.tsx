@@ -500,8 +500,8 @@ function HighSchoolPlacement() {
 							What Families &amp; <i>Students</i> Say
 						</h2>
 						<p>
-							A few words from parents and students who have trusted Naledi with
-							their high school journeys.
+							A few words from parents and students who have trusted Naledi
+							Education with their high school journeys.
 						</p>
 					</div>
 
@@ -509,10 +509,10 @@ function HighSchoolPlacement() {
 						<div className="t-mini reveal d1">
 							<p>
 								As parents, we were overwhelmed by the number of boarding school
-								options in the UK and Canada. Naledi helped us understand which
-								schools would truly fit our son, not just look impressive on
-								paper. They guided us through every form, every interview and
-								every deadline.
+								options in the UK and Canada. Naledi Education helped us
+								understand which schools would truly fit our son, not just look
+								impressive on paper. They guided us through every form, every
+								interview and every deadline.
 							</p>
 							<div className="t-mini-f">
 								<div className="t-mini-av">
@@ -534,8 +534,8 @@ function HighSchoolPlacement() {
 							<p>
 								I always dreamed of attending a top boarding school but I
 								didn&apos;t know how to compete with students from all over the
-								world. Naledi helped me tell my story honestly in my essays and
-								gave me the confidence to speak up in my interviews.
+								world. Naledi Education helped me tell my story honestly in my
+								essays and gave me the confidence to speak up in my interviews.
 							</p>
 							<div className="t-mini-f">
 								<div className="t-mini-av">
@@ -555,10 +555,10 @@ function HighSchoolPlacement() {
 
 						<div className="t-mini reveal d3">
 							<p>
-								Naledi doesn&apos;t just chase offers; they helped us choose the
-								right school for our daughter. We felt seen and heard at every
-								step, and she is now thriving in a community that understands
-								and celebrates who she is.
+								Naledi Education doesn&apos;t just chase offers; they helped us
+								choose the right school for our daughter. We felt seen and heard
+								at every step, and she is now thriving in a community that
+								understands and celebrates who she is.
 							</p>
 							<div className="t-mini-f">
 								<div className="t-mini-av">

@@ -305,7 +305,7 @@ function Destinations() {
 							<span>Global School Destinations</span>
 						</div>
 						<h1 className="ttl">
-							Explore Where <i>Naledi 's</i> Students Go
+							Explore Where <i>Our</i> Students Go
 						</h1>
 					</div>
 					<p>
@@ -318,10 +318,10 @@ function Destinations() {
 				<div className="dest-hero">
 					<div className="dest-hero-content">
 						<p>
-							Naledi has helped students discover world-class educational
-							opportunities across the globe. From historic British boarding
-							schools to innovative programs in North America, Australia, and
-							beyond, we guide families every step of the way.
+							Naledi Education has helped students discover world-class
+							educational opportunities across the globe. From historic British
+							boarding schools to innovative programs in North America,
+							Australia, and beyond, we guide families every step of the way.
 						</p>
 						<p>
 							Select a country below to explore visa requirements, intake
@@ -394,8 +394,8 @@ function Destinations() {
 											{d.notes && <p className="dest-visa-extra">{d.notes}</p>}
 											<p className="dest-visa-disclaimer">
 												Information is indicative only and changes regularly.
-												Naledi provides up-to-date guidance and works alongside
-												families and schools on every application.
+												Naledi Education provides up-to-date guidance and works
+												alongside families and schools on every application.
 											</p>
 										</div>
 
@@ -403,8 +403,7 @@ function Destinations() {
 											<div className="dest-schools-head">
 												<h3>Partner Institutions</h3>
 												<span>
-													Schools where Naledi students have thrived in {d.name}
-													.
+													Schools where our students have thrived in {d.name}.
 												</span>
 											</div>
 											<ul className="dest-schools-list">

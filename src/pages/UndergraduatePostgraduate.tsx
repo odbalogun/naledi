@@ -169,7 +169,7 @@ function UndergraduatePostgraduate() {
 							<p>
 								Whether you&apos;re aiming for a world-class undergraduate
 								degree or advancing your career with a postgraduate
-								qualification, Naledi connects African students with top
+								qualification, Naledi Education connects African students with top
 								universities across the UK, USA, Canada, Australia, and beyond.
 							</p>
 							<p>

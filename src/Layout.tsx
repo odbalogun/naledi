@@ -22,7 +22,7 @@ function Layout() {
 				<Link className="logo" to="/" onClick={closeNav}>
 					{LOGO_SVG}
 					<div>
-						<span className="logo-name">Naledi</span>
+						<span className="logo-name">Naledi Education</span>
 						<span className="logo-sub">Educational Consulting</span>
 					</div>
 				</Link>
@@ -74,7 +74,7 @@ function Layout() {
 			<footer>
 				<div className="ft">
 					<div className="fb">
-						<span className="fb-name">Naledi</span>
+						<span className="fb-name">Naledi Education</span>
 						<span className="fb-sub">Educational Consulting</span>
 						<p>
 							Guiding Africa&apos;s brightest students to the world&apos;s
@@ -136,7 +136,7 @@ function Layout() {
 						<h5>Company</h5>
 						<ul>
 							<li>
-								<Link to="/about">About Naledi</Link>
+								<Link to="/about">About</Link>
 							</li>
 							<li>
 								<Link to="/events">Events</Link>

@@ -385,7 +385,7 @@ function App() {
 											<div>
 												<div className="lbl">
 													<div className="lbl-line" />
-													<span>Naledi Alumni</span>
+													<span>Naledi Education Alumni</span>
 												</div>
 												<h2 className="ttl w">
 													Faces of <i>Possibility</i>
@@ -692,7 +692,7 @@ function App() {
 												<h3 className="text-ink">
 													&quot;The moment everything changed.&quot;
 												</h3>
-												<span>— Every Naledi Student</span>
+												<span>- Every Naledi Education Student</span>
 											</div>
 										</div>
 										<div className="steps">
@@ -780,7 +780,7 @@ function App() {
 											<div className="t-mini reveal d1">
 												<p>
 													As a parent, I was overwhelmed by the whole process.
-													Naledi guided our entire family with patience and
+													Naledi Education guided our entire family with patience and
 													expertise. Our daughter now thrives at Phillips Exeter
 													; it&apos;s everything we dreamed of and more.
 												</p>
@@ -802,7 +802,7 @@ function App() {
 											<div className="t-mini reveal d2">
 												<p>
 													I received a full scholarship to Geelong Grammar and I
-													still can&apos;t believe it. Naledi&apos;s essay
+													still can&apos;t believe it. Naledi Education&apos;s essay
 													coaching and interview prep gave me the confidence to
 													compete with students from anywhere in the world.
 												</p>

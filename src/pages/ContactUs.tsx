@@ -24,7 +24,7 @@ function ContactUs() {
 						</h2>
 						<p>
 							Whether you&apos;re a parent, student, or school, we&apos;d love
-							to understand your goals and explore how Naledi can help.
+							to understand your goals and explore how Naledi Education can help.
 						</p>
 						<p style={{ marginTop: 24 }}>
 							<strong>Email:</strong> info@naledieducation.com
@@ -252,7 +252,7 @@ function ContactUs() {
 									lineHeight: 1.6,
 								}}
 							>
-								By submitting, you agree to be contacted by Naledi about
+								By submitting, you agree to be contacted by Naledi Education about
 								educational opportunities. We never share your details with
 								third parties without your consent.
 							</p>

@@ -185,10 +185,10 @@ function About() {
 							Every Star Deserves to <i>Shine</i>
 						</h2>
 						<p>
-							Naledi exists to connect Africa&apos;s brightest young minds with
-							the world&apos;s best schools. We combine deep local knowledge
-							with global expertise to make that journey clear, confident, and
-							successful for every family we serve.
+							Naledi Education exists to connect Africa&apos;s brightest young
+							minds with the world&apos;s best schools. We combine deep local
+							knowledge with global expertise to make that journey clear,
+							confident, and successful for every family we serve.
 						</p>
 					</div>
 				</div>
