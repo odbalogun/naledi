@@ -78,20 +78,24 @@ function Layout() {
 						<span className="fb-sub">Educational Consulting</span>
 						<p>
 							Guiding Africa&apos;s brightest students to the world&apos;s
-							finest schools — one star at a time.
+							finest schools, one star at a time.
 						</p>
 						<div className="f-soc">
-							<a className="fsa" href="#">
+							<a
+								className="fsa"
+								href="https://www.linkedin.com/company/naledieducation"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								in
 							</a>
-							<a className="fsa" href="#">
-								tw
-							</a>
-							<a className="fsa" href="#">
+							<a
+								className="fsa"
+								href="https://www.instagram.com/naledi_education"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
 								ig
-							</a>
-							<a className="fsa" href="#">
-								fb
 							</a>
 						</div>
 					</div>

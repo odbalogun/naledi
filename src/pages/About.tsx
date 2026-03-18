@@ -42,15 +42,16 @@ function About() {
 							</h2>
 							<br />
 							<p>
-								Naledi — meaning &quot;star&quot; in Sesotho — was founded on a
-								simple conviction: every brilliant African student deserves a
-								seat at the world&apos;s finest schools. We&apos;ve spent over a
-								decade making that a reality.
+								Naledi Education (
+								<span style={{ fontStyle: "italic" }}>Naledi</span> meaning
+								&quot;star&quot; in Sesotho) was founded on a simple conviction:
+								every brilliant African student deserves a seat at the
+								world&apos;s finest schools.
 							</p>
 							<p>
 								We&apos;re not just placement agents. We are mentors,
 								strategists, and advocates who walk alongside every family from
-								the first conversation to the first day of school — and beyond.
+								the first conversation to the first day of school and beyond.
 							</p>
 							<blockquote>
 								&quot;Africa is producing some of the world&apos;s most gifted
@@ -149,7 +150,7 @@ function About() {
 							<span>📋</span>
 							<h4>End-to-End Support</h4>
 							<p>
-								From application strategy to visa assistance and arrival —
+								From application strategy to visa assistance and arrival,
 								we&apos;re with you at every step.
 							</p>
 						</div>

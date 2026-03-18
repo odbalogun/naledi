@@ -63,6 +63,23 @@ const ICONS = {
 			<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
 		</svg>
 	),
+	school: (
+		<svg
+			width="22"
+			height="22"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="1.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M3 10l9-5 9 5-9 5-9-5z" />
+			<path d="M5 11.2V19h14v-7.8" />
+			<path d="M9 19v-5h6v5" />
+			<path d="M21 10v7" />
+		</svg>
+	),
 	calendar: (
 		<svg
 			width="22"
@@ -216,8 +233,8 @@ function App() {
 											Schools.
 										</h1>
 										<p>
-											Naledi places exceptional African students in the
-											world&apos;s finest high schools — guiding every family
+											Naledi Education places exceptional African students in
+											the world&apos;s finest high schools, guiding every family
 											from first conversation to first day of class.
 										</p>
 										<div className="hero-btns">
@@ -249,14 +266,14 @@ function App() {
 										<div className="st">
 											<span className="st-icon">{ICONS.users}</span>
 											<div>
-												<span className="sn">350+</span>
+												<span className="sn">120+</span>
 												<span className="sl">Students Placed</span>
 											</div>
 										</div>
 										<div className="st">
 											<span className="st-icon">{ICONS.activity}</span>
 											<div>
-												<span className="sn">96%</span>
+												<span className="sn">99%</span>
 												<span className="sl">Acceptance Rate</span>
 											</div>
 										</div>
@@ -268,10 +285,10 @@ function App() {
 											</div>
 										</div>
 										<div className="st">
-											<span className="st-icon">{ICONS.calendar}</span>
+											<span className="st-icon">{ICONS.school}</span>
 											<div>
-												<span className="sn">12+</span>
-												<span className="sl">Years Experience</span>
+												<span className="sn">200+</span>
+												<span className="sl">Partner Schools</span>
 											</div>
 										</div>
 									</div>
@@ -318,17 +335,17 @@ function App() {
 												</h2>
 												<br />
 												<p>
-													Naledi — meaning &quot;star&quot; in Sesotho — was
-													founded on a simple conviction: every brilliant
-													African student deserves a seat at the world&apos;s
-													finest schools. We&apos;ve spent over a decade making
-													that a reality.
+													Naledi Education (
+													<span style={{ fontStyle: "italic" }}>Naledi</span>{" "}
+													meaning &quot;star&quot; in Sesotho) was founded on a
+													simple conviction: every brilliant African student
+													deserves a seat at the world&apos;s finest schools.
 												</p>
 												<p>
 													We&apos;re not just placement agents. We are mentors,
 													strategists, and advocates who walk alongside every
 													family from the first conversation to the first day of
-													school — and beyond.
+													school and beyond.
 												</p>
 												<blockquote>
 													&quot;Africa is producing some of the world&apos;s
@@ -354,7 +371,7 @@ function App() {
 													<div className="pil">
 														<span>✨</span>
 														<h4>Proven Results</h4>
-														<p>96% acceptance rate across partner schools</p>
+														<p>99% acceptance rate across partner schools</p>
 													</div>
 												</div>
 											</div>
@@ -506,8 +523,9 @@ function App() {
 													<p>
 														We match each student&apos;s academic profile,
 														personality, and ambitions to a curated shortlist of
-														schools — then build applications that leave a
-														lasting impression on admissions offices worldwide.
+														schools and then help them build applications that
+														leave lasting impressions on admissions offices
+														worldwide.
 													</p>
 												</div>
 											</div>
@@ -661,7 +679,7 @@ function App() {
 											<p className="reveal d2">
 												Our proven pathway has guided hundreds of students from
 												a first family conversation to their first day in a
-												world-class classroom. Every step is personal, every
+												world-class classroom. Every step is personal and every
 												decision is yours.
 											</p>
 										</div>
@@ -682,7 +700,7 @@ function App() {
 												{
 													n: "1",
 													title: "Free Consultation",
-													desc: "We learn who your student is — their strengths, dreams, and what kind of school will help them truly flourish.",
+													desc: "We learn who your student is: their strengths, dreams, and the kind of school that will help them truly flourish.",
 												},
 												{
 													n: "2",
@@ -692,7 +710,7 @@ function App() {
 												{
 													n: "3",
 													title: "Application Build",
-													desc: "Essays, forms, references — we craft an authentic portfolio that makes admissions officers take notice.",
+													desc: "Essays, forms, references. We help them craft an authentic portfolio that makes admissions officers take notice.",
 												},
 												{
 													n: "4",
@@ -702,7 +720,7 @@ function App() {
 												{
 													n: "5",
 													title: "Arrival & Beyond",
-													desc: "Visa, travel, orientation — and ongoing pastoral support so your student settles in confidently.",
+													desc: "Visa, travel, orientation and ongoing pastoral support so your student settles in confidently.",
 												},
 											].map((step, i) => (
 												<div key={i} className={`step reveal d${i + 1}`}>
@@ -736,11 +754,11 @@ function App() {
 											<div className="t-feat-body">
 												<div className="t-qm">&quot;</div>
 												<p className="t-q">
-													Naledi didn&apos;t just help me get into Eton — they
-													helped me believe I deserved to be there. They coached
-													me, believed in me, and pushed me to show the real me
-													in my application. I&apos;ll carry that confidence for
-													the rest of my life.
+													Naledi Education didn&apos;t just help me get into
+													Eton; they helped me believe I deserved to be there.
+													They coached me, believed in me, and pushed me to show
+													the real me in my application. I&apos;ll carry that
+													confidence for the rest of my life.
 												</p>
 												<div className="t-per">
 													<div className="t-av">
@@ -764,7 +782,7 @@ function App() {
 													As a parent, I was overwhelmed by the whole process.
 													Naledi guided our entire family with patience and
 													expertise. Our daughter now thrives at Phillips Exeter
-													— it&apos;s everything we dreamed of and more.
+													; it&apos;s everything we dreamed of and more.
 												</p>
 												<div className="t-mini-f">
 													<div className="t-mini-av">
@@ -824,7 +842,7 @@ function App() {
 												to <i>Shine Globally.</i>
 											</h2>
 											<p>
-												Book a free consultation today. No obligation — just an
+												Book a free consultation today. No obligation, just an
 												honest conversation about your child&apos;s potential
 												and how we can help unlock it.
 											</p>

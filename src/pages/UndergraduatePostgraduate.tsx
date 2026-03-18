@@ -89,7 +89,7 @@ const UG_FAQ = [
 	},
 	{
 		q: "Can you help with both undergraduate and postgraduate applications?",
-		a: "Absolutely. We support students at every level — from first degrees (BA, BSc, BEng) to master's (MA, MSc, MBA, LLM) and doctoral programmes (MPhil, PhD). Each level has different requirements; we tailor our support accordingly.",
+		a: "Absolutely. We support students at every level: from first degrees (BA, BSc, BEng) to master's (MA, MSc, MBA, LLM) and doctoral programmes (MPhil, PhD). Each level has different requirements; we tailor our support accordingly.",
 	},
 	{
 		q: "What if my academic background is non-standard?",
@@ -173,7 +173,7 @@ function UndergraduatePostgraduate() {
 								universities across the UK, USA, Canada, Australia, and beyond.
 							</p>
 							<p>
-								We support students at every stage — from bachelor&apos;s and
+								We support students at every stage, from bachelor&apos;s and
 								master&apos;s programmes to PhDs and professional degrees. Our
 								consultants understand the distinct requirements of each level
 								and help you build applications that stand out.

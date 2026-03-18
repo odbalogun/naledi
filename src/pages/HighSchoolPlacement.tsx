@@ -85,7 +85,7 @@ const HS_FAQ = [
 	},
 	{
 		q: "Do you only work with top academic achievers?",
-		a: "No. We work with students across a range of academic profiles. Our focus is on fit — finding schools where each student can thrive academically, socially, and personally. We support both strong performers and students still discovering their strengths.",
+		a: "No. We work with students across a range of academic profiles. Our focus is on fit; finding schools where each student can thrive academically, socially, and personally. We support both strong performers and students still discovering their strengths.",
 	},
 	{
 		q: "How do you help with scholarships and financial aid?",
@@ -188,9 +188,9 @@ function HighSchoolPlacement() {
 								the most well-known one.
 							</p>
 							<p>
-								We focus on fit — academically, socially, and pastorally — so
-								that students don&apos;t just win offers; they truly thrive in
-								their new school communities.
+								We focus on fit (academically, socially, and pastorally) so that
+								students don&apos;t just win offers; they truly thrive in their
+								new school communities.
 							</p>
 							<div className="pillars">
 								<div className="pil">
@@ -255,7 +255,7 @@ function HighSchoolPlacement() {
 								<h3>School Selection &amp; Application Strategy</h3>
 								<p>
 									We match each student&apos;s academic profile, personality and
-									ambitions to a curated shortlist of high schools — then shape
+									ambitions to a curated shortlist of high schools, then shape
 									applications that tell a clear, compelling story across forms,
 									essays and recommendations.
 								</p>

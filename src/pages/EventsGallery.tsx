@@ -36,7 +36,7 @@ function EventsGallery() {
 			dateLabel: "12 April 2026",
 			location: "Victoria Island, Lagos",
 			meta: "Limited seats · RSVP required",
-			copy: "A guided evening for families considering UK boarding schools — timelines, scholarships, and what strong applications look like.",
+			copy: "A guided evening for families considering UK boarding schools: timelines, scholarships, and what strong applications look like.",
 		},
 		{
 			tag: "Upcoming",
@@ -89,7 +89,7 @@ function EventsGallery() {
 			date: "January 2026",
 			location: "Online",
 			meta: "3-day intensive · Ages 13–18",
-			copy: "Hands-on coaching on interviews, essays, and storytelling — helping students present their authentic strengths.",
+			copy: "Hands-on coaching on interviews, essays, and storytelling, helping students present their authentic strengths.",
 			images: [
 				{
 					url: "https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=1200&q=85&fit=crop&crop=center",
@@ -445,7 +445,7 @@ function EventsGallery() {
 						</button>
 						<div className="rsvp-modal-content">
 							<h2 id="rsvp-modal-title" className="rsvp-modal-title">
-								RSVP — {rsvpEvent.title}
+								RSVP: {rsvpEvent.title}
 							</h2>
 							<p className="rsvp-modal-meta">
 								{rsvpEvent.dateLabel} · {rsvpEvent.location}
