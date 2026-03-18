@@ -7,6 +7,7 @@ import UndergraduatePostgraduate from "./pages/UndergraduatePostgraduate";
 import EventsGallery from "./pages/EventsGallery";
 import ContactUs from "./pages/ContactUs";
 import Destinations from "./pages/Destinations";
+import CampsSeasonalPrograms from "./pages/CampsSeasonalPrograms";
 import "./App.css";
 
 const ARROW_SVG = (
@@ -172,6 +173,7 @@ function App() {
 			"/events",
 			"/contact-us",
 			"/destinations",
+			"/camps-seasonal-programs",
 		].includes(location.pathname);
 		const onScroll = () => {
 			nav.classList.toggle("solid", isSolidNav || window.scrollY > 60);
@@ -316,13 +318,18 @@ function App() {
 														alt="Students studying as a group"
 													/>
 												</div>
-												<div className="m-badge">
-													<span className="m-badge-n">12+</span>
-													<span className="m-badge-l">
-														Years of
-														<br />
-														Excellence
-													</span>
+												<div className="m-badge-wrap">
+													<div className="m-badge" aria-describedby="years-excellence-note-home">
+														<span className="m-badge-n">12+</span>
+														<span className="m-badge-l">
+															Years of
+															<br />
+															Excellence*
+														</span>
+													</div>
+													<p id="years-excellence-note-home" className="m-badge-note" role="note">
+														*Cumulative years of experience across our staff.
+													</p>
 												</div>
 											</div>
 											<div className="m-copy reveal d2">
@@ -872,6 +879,7 @@ function App() {
 						element={<UndergraduatePostgraduate />}
 					/>
 					<Route path="destinations" element={<Destinations />} />
+					<Route path="camps-seasonal-programs" element={<CampsSeasonalPrograms />} />
 					<Route path="events" element={<EventsGallery />} />
 					<Route path="contact-us" element={<ContactUs />} />
 				</Route>

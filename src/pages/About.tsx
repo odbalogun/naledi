@@ -23,13 +23,18 @@ function About() {
 									alt="Graduate student"
 								/>
 							</div>
-							<div className="m-badge">
-								<span className="m-badge-n">12+</span>
-								<span className="m-badge-l">
-									Years of
-									<br />
-									Excellence
-								</span>
+							<div className="m-badge-wrap">
+								<div className="m-badge" aria-describedby="years-excellence-note-about">
+									<span className="m-badge-n">12+</span>
+									<span className="m-badge-l">
+										Years of
+										<br />
+										Excellence*
+									</span>
+								</div>
+								<p id="years-excellence-note-about" className="m-badge-note" role="note">
+									*Cumulative years of experience across our staff.
+								</p>
 							</div>
 						</div>
 						<div className="m-copy reveal d2">

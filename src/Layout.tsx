@@ -59,6 +59,11 @@ function Layout() {
 						</NavLink>
 					</li>
 					<li>
+						<NavLink to="/camps-seasonal-programs" onClick={closeNav}>
+							Camps &amp; Programs
+						</NavLink>
+					</li>
+					<li>
 						<NavLink to="/events" onClick={closeNav}>
 							Events
 						</NavLink>
@@ -109,6 +114,9 @@ function Layout() {
 								<Link to="/undergraduate-postgraduate">
 									Undergraduate &amp; Graduate
 								</Link>
+							</li>
+							<li>
+								<Link to="/camps-seasonal-programs">Camps &amp; Programs</Link>
 							</li>
 						</ul>
 					</div>
