@@ -441,8 +441,8 @@ function HighSchoolPlacement() {
 							<span>🏠</span>
 							<h4>On-Campus Boarding</h4>
 							<p>
-								Many of our partner schools offer on-campus boarding with
-								house parents, dedicated pastoral staff, and structured routines.
+								Many of our partner schools offer on-campus boarding with house
+								parents, dedicated pastoral staff, and structured routines.
 								Students live in houses or dormitories on school grounds, with
 								meals, study support, and activities built in. Ideal for
 								families who want everything in one place with strong
@@ -456,8 +456,8 @@ function HighSchoolPlacement() {
 								Some schools use supervised off-campus residences or
 								partner-owned accommodation, with transport to and from campus.
 								These options still provide oversight, curfews, and pastoral
-								check-ins while giving older students more independence. We
-								only recommend vetted, school-approved arrangements.
+								check-ins while giving older students more independence. We only
+								recommend vetted, school-approved arrangements.
 							</p>
 						</div>
 						<div className="pil reveal d3">
@@ -466,8 +466,8 @@ function HighSchoolPlacement() {
 							<p>
 								Homestay places students with carefully selected host families
 								near the school. Families are vetted for safety, warmth, and
-								ability to support international students. Homestay can offer
-								a home-away-from-home, cultural immersion, and often meals and
+								ability to support international students. Homestay can offer a
+								home-away-from-home, cultural immersion, and often meals and
 								transport. We work with schools and agencies that inspect and
 								monitor placements.
 							</p>
@@ -493,76 +493,8 @@ function HighSchoolPlacement() {
 				</div>
 			</section>
 
-			{/* High school process – timeline style */}
-			<section className="process">
-				<div className="si">
-					<div className="reveal">
-						<div className="lbl">
-							<div className="lbl-line" />
-							<span>How It Works</span>
-						</div>
-						<h2 className="ttl w">
-							A Clear, Five-Step <i>Pathway</i> to the Right School
-						</h2>
-						<p
-							style={{
-								color: "rgba(255,255,255,.72)",
-								marginTop: 16,
-								maxWidth: 640,
-							}}
-						>
-							Our high school placement pathway is simple and structured, but
-							never one-size-fits-all. Every step is designed to reduce stress
-							for families while giving students the space and support they need
-							to shine.
-						</p>
-					</div>
-
-					<div className="hs-process-grid">
-						{[
-							{
-								n: "01",
-								title: "Discovery & Family Consultation",
-								desc: "We begin with a detailed conversation to understand your child, your family values and your goals. We discuss timelines, budgets, preferred destinations and the kind of environment where your child is likely to flourish.",
-							},
-							{
-								n: "02",
-								title: "Profile Review & School Shortlist",
-								desc: "We review academic records, extracurriculars, interests and personality. Based on this, we build a personalised shortlist of schools – balancing ambition with realism and always prioritising fit over prestige alone.",
-							},
-							{
-								n: "03",
-								title: "Applications, Essays & Interviews",
-								desc: "We coordinate the application process: forms, essays, recommendations and references. Students receive coaching for admissions interviews and, where required, preparation for entrance tests.",
-							},
-							{
-								n: "04",
-								title: "Offers, Scholarships & Decision",
-								desc: "When offers arrive, we help your family compare options clearly – academic strength, pastoral care, financial packages, boarding vs day, and long-term pathways – and advise on scholarships and bursaries where possible.",
-							},
-							{
-								n: "05",
-								title: "Visa, Travel & Ongoing Support",
-								desc: "Once a decision is made, we support visa applications, travel arrangements and pre-departure briefing. After arrival, we remain available to both students and parents as a familiar point of contact.",
-							},
-						].map((step, i) => (
-							<div
-								key={step.title}
-								className={`hs-process-step reveal d${i + 1}`}
-							>
-								<div className="hs-step-number">{step.n}</div>
-								<div className="hs-step-body">
-									<h4>{step.title}</h4>
-									<p>{step.desc}</p>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</section>
-
 			{/* Scholarships */}
-			<section className="mission" style={{ background: "#fff" }}>
+			<section className="process">
 				<div className="si">
 					<div className="svc-top reveal">
 						<div>
@@ -570,7 +502,7 @@ function HighSchoolPlacement() {
 								<div className="lbl-line" />
 								<span>Funding &amp; Aid</span>
 							</div>
-							<h2 className="ttl">
+							<h2 className="ttl w">
 								Scholarships &amp; <i>Financial Support</i>
 							</h2>
 						</div>
@@ -581,13 +513,11 @@ function HighSchoolPlacement() {
 						</p>
 					</div>
 					<div
-						className="reveal"
+						className="reveal scholarship-highlight"
 						style={{
 							textAlign: "center",
 							marginBottom: 40,
 							padding: "20px 24px",
-							background: "var(--sand)",
-							borderRadius: 8,
 							maxWidth: 480,
 							marginLeft: "auto",
 							marginRight: "auto",
@@ -607,7 +537,6 @@ function HighSchoolPlacement() {
 							style={{
 								margin: "8px 0 0",
 								fontSize: ".9rem",
-								color: "var(--mid)",
 								fontWeight: 300,
 							}}
 						>
@@ -644,22 +573,20 @@ function HighSchoolPlacement() {
 							<p>
 								Bursaries and need-based awards reduce fees for families who
 								cannot afford full tuition. Schools typically require
-								confidential financial information and may offer partial
-								support (e.g. 20–80%). We guide you through evidence
-								requirements and realistic expectations by school and
-								destination.
+								confidential financial information and may offer partial support
+								(e.g. 20–80%). We guide you through evidence requirements and
+								realistic expectations by school and destination.
 							</p>
 						</div>
 						<div className="pil reveal d4">
 							<span>📚</span>
 							<h4>Academic-Based</h4>
 							<p>
-								Recognising top academic performance, often in specific
-								subjects or entrance assessments. These scholarships reward
-								grades, test scores, and intellectual curiosity. We help
-								students prepare for relevant exams and present their academic
-								record clearly so schools can consider them for academic
-								awards.
+								Recognising top academic performance, often in specific subjects
+								or entrance assessments. These scholarships reward grades, test
+								scores, and intellectual curiosity. We help students prepare for
+								relevant exams and present their academic record clearly so
+								schools can consider them for academic awards.
 							</p>
 						</div>
 					</div>

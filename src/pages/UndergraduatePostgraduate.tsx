@@ -169,8 +169,9 @@ function UndergraduatePostgraduate() {
 							<p>
 								Whether you&apos;re aiming for a world-class undergraduate
 								degree or advancing your career with a postgraduate
-								qualification, Naledi Education connects African students with top
-								universities across the UK, USA, Canada, Australia, and beyond.
+								qualification, Naledi Education connects African students with
+								top universities across the UK, USA, Canada, Australia, and
+								beyond.
 							</p>
 							<p>
 								We support students at every stage, from bachelor&apos;s and
@@ -183,7 +184,7 @@ function UndergraduatePostgraduate() {
 				</div>
 			</section>
 
-			<section className="services">
+			<section className="process">
 				<div className="si">
 					<div className="svc-top reveal">
 						<div>
@@ -232,9 +233,147 @@ function UndergraduatePostgraduate() {
 				</div>
 			</section>
 
-			<section className="destinations">
+			{/* Pathway Programs */}
+			<section className="mission">
 				<div className="si">
-					<div className="d-top reveal">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>Curriculum Pathways</span>
+							</div>
+							<h2 className="ttl">
+								Foundation, <i>A-Levels</i> &amp; IB
+							</h2>
+						</div>
+						<p>
+							We guide families through the main qualification routes that lead
+							to university and beyond. Each pathway has different strengths and
+							fit; we help you choose and prepare for the right one.
+						</p>
+					</div>
+					<div className="pillars">
+						<div className="pil reveal d1">
+							<span>📐</span>
+							<h4>Foundation Programmes</h4>
+							<p>
+								Foundation years bridge the gap between local or alternative
+								qualifications and direct entry to university. They typically
+								last one year and focus on subject knowledge, academic English,
+								and study skills. Ideal for students who need to meet entry
+								requirements for a specific country or institution. We work with
+								recognised foundation providers in the UK, Europe, and Australia
+								that offer progression to degree programmes.
+							</p>
+						</div>
+						<div className="pil reveal d2">
+							<span>📜</span>
+							<h4>A-Levels</h4>
+							<p>
+								A-Levels are the gold standard for university entry in the UK
+								and widely recognised globally. Students usually take three or
+								four subjects over two years (Years 12–13), with deep focus and
+								final exams. A-Levels suit students who prefer depth over
+								breadth and excel in chosen subjects. We help families choose
+								schools with strong A-Level provision and the right subject
+								combinations for their target degree and destination.
+							</p>
+						</div>
+						<div className="pil reveal d3">
+							<span>🌍</span>
+							<h4>International Baccalaureate (IB)</h4>
+							<p>
+								The IB Diploma Programme is a two-year, broad and rigorous
+								curriculum recognised by universities worldwide. Students take
+								six subjects plus the core (Theory of Knowledge, Extended Essay,
+								CAS). The IB suits academically strong, well-rounded students
+								who thrive in inquiry-based learning and want a globally
+								portable qualification. We support applications to IB schools
+								and help students understand the demands and rewards of the
+								programme.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Specialist pathways */}
+			<section className="services">
+				<div className="si">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>Specialist Pathways</span>
+							</div>
+							<h2 className="ttl">
+								Fashion, <i>Medical</i> &amp; Aviation Schools
+							</h2>
+						</div>
+						<p>
+							We support applicants targeting specialist and professional
+							schools with distinct entry requirements and portfolios.
+						</p>
+					</div>
+					<div className="pillars">
+						<div className="pil reveal d1">
+							<span>👗</span>
+							<h4>Fashion Schools</h4>
+							<p>
+								From design and merchandising to luxury and sustainability, we
+								guide applicants to leading fashion schools and programmes in
+								the UK, Europe, and the US. We help you prepare portfolios,
+								personal statements, and interviews so your creative vision and
+								technical skills stand out to admissions panels.
+							</p>
+						</div>
+						<div className="pil reveal d2">
+							<span>🩺</span>
+							<h4>Medical Schools</h4>
+							<p>
+								Entry to medicine is highly competitive and varies by country.
+								We support aspiring doctors with course selection (e.g. standard
+								MBBS/MD, graduate entry, and international programmes),
+								UCAT/BMAT and other admissions test preparation, work experience
+								and personal statement guidance, and interview prep for UK,
+								Irish, European, and further afield medical schools.
+							</p>
+						</div>
+						<div className="pil reveal d3">
+							<span>✈️</span>
+							<h4>Aviation Schools</h4>
+							<p>
+								Pilot training and aviation degree programmes combine academic
+								study with flight training and licensing. We help students
+								identify accredited aviation schools and universities,
+								understand requirements (medical, aptitude, and academic), and
+								prepare applications for integrated or modular pathways to
+								commercial or professional pilot licences and related careers.
+							</p>
+						</div>
+					</div>
+					<p
+						className="reveal"
+						style={{
+							marginTop: 28,
+							maxWidth: 720,
+							fontSize: ".92rem",
+							color: "var(--mid)",
+							lineHeight: 1.75,
+							fontWeight: 300,
+						}}
+					>
+						Fashion, medical, and aviation are three of the specialist areas we
+						work with regularly. We also support applicants to other
+						professional and specialist schools; get in touch to discuss your
+						pathway.
+					</p>
+				</div>
+			</section>
+
+			<section className="process">
+				<div className="si">
+					<div className="svc-top reveal on">
 						<div>
 							<div className="lbl">
 								<div className="lbl-line" />
@@ -330,7 +469,16 @@ function UndergraduatePostgraduate() {
 								>
 									<span className="faq-q">{item.q}</span>
 									<span className="faq-chevron">
-										<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+										<svg
+											width="20"
+											height="20"
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										>
 											<path d="M6 9l6 6 6-6" />
 										</svg>
 									</span>
