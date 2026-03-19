@@ -1,16 +1,6 @@
 import { useState } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
 
-const LOGO_SVG = (
-	<svg viewBox="0 0 32 32" fill="none">
-		<polygon
-			points="16,1 19,11 29,11 21,17 24,27 16,21 8,27 11,17 3,11 13,11"
-			fill="#c8974a"
-		/>
-		<circle cx="16" cy="16" r="3.5" fill="#c8974a" opacity=".65" />
-	</svg>
-);
-
 function Layout() {
 	const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -20,11 +10,11 @@ function Layout() {
 		<>
 			<nav id="nav">
 				<Link className="logo" to="/" onClick={closeNav}>
-					{LOGO_SVG}
-					<div>
-						<span className="logo-name">Naledi Education</span>
-						<span className="logo-sub">Educational Consulting</span>
-					</div>
+					<img
+						src="/naledi_logo_1.png"
+						alt="Naledi Education"
+						className="logo-img"
+					/>
 				</Link>
 				<button
 					type="button"
@@ -79,8 +69,13 @@ function Layout() {
 			<footer>
 				<div className="ft">
 					<div className="fb">
-						<span className="fb-name">Naledi Education</span>
-						<span className="fb-sub">Educational Consulting</span>
+						<Link to="/" className="fb-logo">
+							<img
+								src="/naledi_logo_1.png"
+								alt="Naledi Education"
+								className="fb-logo-img"
+							/>
+						</Link>
 						<p>
 							Guiding Africa&apos;s brightest students to the world&apos;s
 							finest schools, one star at a time.
