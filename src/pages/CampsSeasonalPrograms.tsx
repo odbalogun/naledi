@@ -27,7 +27,7 @@ const SUMMER_SPORTS = [
 	},
 	{
 		name: "Cricket",
-		img: "https://images.unsplash.com/photo-1531415074968-036f1e19e0c6?w=800&q=85&fit=crop&crop=center",
+		img: "/images/cricket.jpg",
 		desc: "Cricket camps at historic grounds and schools. Batting, bowling, fielding, and game awareness with experienced coaches and regular matches.",
 		highlight: false,
 	},
@@ -47,12 +47,12 @@ const WINTER_SPORTS = [
 	},
 	{
 		name: "Ice Hockey",
-		img: "https://images.unsplash.com/photo-1545128485-c400e7702796?w=800&q=85&fit=crop&crop=center",
+		img: "/images/ice_hockey.jpg",
 		desc: "Ice hockey camps at professional and academy facilities. Skating, stickhandling, team play, and game situations with experienced coaches.",
 	},
 	{
 		name: "Figure Skating",
-		img: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=85&fit=crop&crop=center",
+		img: "/images/figure_skating.jpg",
 		desc: "Figure skating programmes for developing jumps, spins, and choreography. Camps run in partnership with rinks and clubs in the UK and Europe.",
 	},
 ];
@@ -67,13 +67,13 @@ function CampsSeasonalPrograms() {
 						<div className="mi-wrap reveal">
 							<div className="mi tall">
 								<img
-									src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=900&q=85&fit=crop&crop=center"
-									alt="Children at summer camp"
+									src="/images/football_training.jpg"
+									alt="Football training"
 								/>
 							</div>
 							<div className="mi sq">
 								<img
-									src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=85&fit=crop&crop=center"
+									src="/images/camp_students.png"
 									alt="Students at summer school"
 								/>
 							</div>
@@ -228,7 +228,7 @@ function CampsSeasonalPrograms() {
 					<div className="camp-section-content camp-section-reverse">
 						<div className="camp-section-img reveal">
 							<img
-								src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=900&q=85&fit=crop&crop=center"
+								src="/images/football_kick.jpg"
 								alt="Young footballers training on pitch"
 							/>
 						</div>
@@ -255,9 +255,15 @@ function CampsSeasonalPrograms() {
 								include regular match play and feedback.
 							</p>
 							<ul className="camp-benefits">
-								<li>Technical and tactical development in small training groups</li>
-								<li>Position-specific coaching and video analysis where offered</li>
-								<li>Opportunities to train in professional-standard facilities</li>
+								<li>
+									Technical and tactical development in small training groups
+								</li>
+								<li>
+									Position-specific coaching and video analysis where offered
+								</li>
+								<li>
+									Opportunities to train in professional-standard facilities
+								</li>
 								<li>
 									Structured schedules that balance football, recovery, and
 									off-pitch learning

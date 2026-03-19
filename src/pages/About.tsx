@@ -132,7 +132,7 @@ function About() {
 				</div>
 			</section> */}
 
-			<section className="services">
+			<section className="process">
 				<div className="si">
 					<div className="svc-top reveal">
 						<div>
@@ -178,6 +178,55 @@ function About() {
 				</div>
 			</section>
 
+			<section className="services">
+				<div className="si">
+					<div className="svc-top reveal">
+						<div>
+							<div className="lbl">
+								<div className="lbl-line" />
+								<span>Identity</span>
+							</div>
+							<h2 className="ttl">
+								Our Vision, Mission &amp; <i>Values</i>
+							</h2>
+						</div>
+						<p>
+							These principles shape how we advise families, partner with
+							schools, and support students long after they arrive on campus.
+						</p>
+					</div>
+					<div className="pillars" style={{ marginTop: 0 }}>
+						<div className="pil reveal d1">
+							<span>🌠</span>
+							<h4>Vision</h4>
+							<p>
+								To be Africa&apos;s most trusted global education partner, known
+								for opening life-changing pathways to world-class schools and
+								universities.
+							</p>
+						</div>
+						<div className="pil reveal d2">
+							<span>🧭</span>
+							<h4>Mission</h4>
+							<p>
+								To guide students and families with clear strategy, ethical
+								advice, and hands-on support from discovery to successful
+								placement and beyond.
+							</p>
+						</div>
+						<div className="pil reveal d3">
+							<span>💎</span>
+							<h4>Company Values</h4>
+							<p>
+								Student-first guidance, integrity in every recommendation,
+								excellence in execution, and compassionate pastoral support at
+								every stage.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<section className="mission">
 				<div className="si">
 					<div
@@ -193,6 +242,17 @@ function About() {
 							<div className="lbl-line" />
 							<span>Our Promise</span>
 						</div>
+						<p
+							style={{
+								fontFamily: "'Fraunces', serif",
+								fontSize: "1rem",
+								fontStyle: "italic",
+								color: "var(--gold)",
+								marginBottom: 14,
+							}}
+						>
+							Your Pathway To Global Education
+						</p>
 						<h2 className="ttl" style={{ marginBottom: 24 }}>
 							Every Star Deserves to <i>Shine</i>
 						</h2>
