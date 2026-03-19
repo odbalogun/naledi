@@ -24,7 +24,10 @@ function About() {
 								/>
 							</div>
 							<div className="m-badge-wrap">
-								<div className="m-badge" aria-describedby="years-excellence-note-about">
+								<div
+									className="m-badge"
+									aria-describedby="years-excellence-note-about"
+								>
 									<span className="m-badge-n">12+</span>
 									<span className="m-badge-l">
 										Years of
@@ -32,7 +35,11 @@ function About() {
 										Excellence*
 									</span>
 								</div>
-								<p id="years-excellence-note-about" className="m-badge-note" role="note">
+								<p
+									id="years-excellence-note-about"
+									className="m-badge-note"
+									role="note"
+								>
 									*Cumulative years of experience across our staff.
 								</p>
 							</div>
@@ -85,7 +92,7 @@ function About() {
 				</div>
 			</section>
 
-			<section className="founder-section">
+			{/* <section className="process">
 				<div className="si">
 					<div className="founder-grid">
 						<div className="founder-portrait reveal">
@@ -99,11 +106,11 @@ function About() {
 								<div className="lbl-line" />
 								<span>Founder&apos;s Notes</span>
 							</div>
-							<h2 className="ttl">
+							<h2 className="ttl w">
 								Chioma <i>Anowai</i>
 							</h2>
 							<br />
-							<p>
+							<p className="text-white">
 								As an international education consultant who transitioned from
 								being an admissions manager, who has worked across Nigeria and
 								Africa for almost ten years with an extensive understanding of
@@ -111,19 +118,19 @@ function About() {
 								institutional bodies, unrivalled expertise in student placement
 								and visa organisation for large student groups is our forte.
 							</p>
-							<p>
+							<p className="text-white">
 								There is an understanding of what educational institutions need
 								in a recruitment partner: quality referrals, reliable processes,
 								and ethical standards.
 							</p>
-							<p>
+							<p className="text-white">
 								At Naledi Education, we offer all three, backed by a passion for
 								student success and institutional growth.
 							</p>
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> */}
 
 			<section className="services">
 				<div className="si">

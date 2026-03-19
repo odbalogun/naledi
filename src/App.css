@@ -13,9 +13,9 @@
 .bg-sand { background: var(--sand); }
 .bg-ink { background: var(--ink); }
 
-.text-white {color: var(--white);}
-.text-ink {color: var(--ink);}
-.text-sand {color: var(--sand);}
+.text-white {color: var(--white) !important;}
+.text-ink {color: var(--ink) !important;}
+.text-sand {color: var(--sand) !important;}
 
 /* NAV */
 nav {

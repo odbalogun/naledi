@@ -308,18 +308,21 @@ function App() {
 												</div>
 												<div className="mi sq">
 													<img
-														src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=85&fit=crop"
+														src="/images/muslim_image.png"
 														alt="Nigerian students in classroom"
 													/>
 												</div>
 												<div className="mi sq">
 													<img
-														src="/images/students_in_class1.png"
+														src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=85&fit=crop"
 														alt="Students studying as a group"
 													/>
 												</div>
 												<div className="m-badge-wrap">
-													<div className="m-badge" aria-describedby="years-excellence-note-home">
+													<div
+														className="m-badge"
+														aria-describedby="years-excellence-note-home"
+													>
 														<span className="m-badge-n">12+</span>
 														<span className="m-badge-l">
 															Years of
@@ -327,7 +330,11 @@ function App() {
 															Excellence*
 														</span>
 													</div>
-													<p id="years-excellence-note-home" className="m-badge-note" role="note">
+													<p
+														id="years-excellence-note-home"
+														className="m-badge-note"
+														role="note"
+													>
 														*Cumulative years of experience across our staff.
 													</p>
 												</div>
@@ -754,7 +761,7 @@ function App() {
 										<div className="t-feat reveal">
 											<div className="t-feat-img">
 												<img
-													src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=900&q=85&fit=crop&crop=top"
+													src="/images/black_woman_to_board.png"
 													alt="Happy graduate"
 												/>
 											</div>
@@ -787,9 +794,10 @@ function App() {
 											<div className="t-mini reveal d1">
 												<p>
 													As a parent, I was overwhelmed by the whole process.
-													Naledi Education guided our entire family with patience and
-													expertise. Our daughter now thrives at Phillips Exeter
-													; it&apos;s everything we dreamed of and more.
+													Naledi Education guided our entire family with
+													patience and expertise. Our daughter now thrives at
+													Phillips Exeter ; it&apos;s everything we dreamed of
+													and more.
 												</p>
 												<div className="t-mini-f">
 													<div className="t-mini-av">
@@ -809,9 +817,10 @@ function App() {
 											<div className="t-mini reveal d2">
 												<p>
 													I received a full scholarship to Geelong Grammar and I
-													still can&apos;t believe it. Naledi Education&apos;s essay
-													coaching and interview prep gave me the confidence to
-													compete with students from anywhere in the world.
+													still can&apos;t believe it. Naledi Education&apos;s
+													essay coaching and interview prep gave me the
+													confidence to compete with students from anywhere in
+													the world.
 												</p>
 												<div className="t-mini-f">
 													<div className="t-mini-av">
@@ -879,7 +888,10 @@ function App() {
 						element={<UndergraduatePostgraduate />}
 					/>
 					<Route path="destinations" element={<Destinations />} />
-					<Route path="camps-seasonal-programs" element={<CampsSeasonalPrograms />} />
+					<Route
+						path="camps-seasonal-programs"
+						element={<CampsSeasonalPrograms />}
+					/>
 					<Route path="events" element={<EventsGallery />} />
 					<Route path="contact-us" element={<ContactUs />} />
 				</Route>
