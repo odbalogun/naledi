@@ -251,7 +251,7 @@ function About() {
 								marginBottom: 14,
 							}}
 						>
-							Your Pathway To Global Education
+							Your Pathway To World-Class Education
 						</p>
 						<h2 className="ttl" style={{ marginBottom: 24 }}>
 							Every Star Deserves to <i>Shine</i>

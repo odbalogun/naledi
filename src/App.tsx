@@ -240,11 +240,16 @@ function App() {
 											from first conversation to first day of class.
 										</p>
 										<div className="hero-btns">
-											<a href="/contact-us" className="btn-fill">
-												Begin the Journey
-											</a>
-											<a href="/about" className="btn-ghost">
-												Our Story {ARROW_SVG}
+											<Link to="/contact-us" className="btn-fill">
+												Get Started
+											</Link>
+											<a
+												href="https://chat.whatsapp.com/J0wFd2nm5IMGZPx5LxUCDp"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="btn-ghost"
+											>
+												Join Our WhatsApp Community {ARROW_SVG}
 											</a>
 										</div>
 									</div>
@@ -437,34 +442,34 @@ function App() {
 													{
 														img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=85&fit=crop&crop=top",
 														country: "Nigeria → United Kingdom",
-														name: "Amara O.",
+														name: "Amaka O.",
 														school: "Eton College · Full Scholarship",
 														tag: "Class of 2023",
 													},
 													{
-														img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=85&fit=crop&crop=top",
+														img: "/images/ghanaian_man.jpg",
 														country: "Ghana → United States",
 														name: "Kofi A.",
 														school: "Phillips Exeter Academy",
 														tag: "Class of 2024",
 													},
 													{
-														img: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=600&q=85&fit=crop&crop=top",
+														img: "/images/gina_marge_1.jpg",
 														country: "South Africa → Australia",
 														name: "Zola D.",
 														school: "Geelong Grammar School",
 														tag: "Class of 2024",
 													},
 													{
-														img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=85&fit=crop&crop=top",
-														country: "Kenya → Canada",
+														img: "/images/gina_marge.jpg",
+														country: "Nigeria → Canada",
 														name: "Aisha M.",
 														school: "Upper Canada College",
 														tag: "Class of 2025",
 													},
 													{
-														img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=85&fit=crop&crop=top",
-														country: "Cameroon → Switzerland",
+														img: "/images/nigerian_man.jpg",
+														country: "Nigeria → Switzerland",
 														name: "Emmanuel T.",
 														school: "Institut Le Rosey",
 														tag: "Class of 2025",

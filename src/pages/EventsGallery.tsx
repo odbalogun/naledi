@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+	fetchEventsPayload,
+	galleryToImageUrls,
+	hasCms,
+	submitEventRsvp,
+} from "../lib/cms";
 
 type UpcomingEvent = {
+	cmsId?: string | number;
+	/** ISO date for calendar strip; empty if only dateLabel is set in CMS */
+	date: string;
+	dateLabelOnly?: boolean;
 	tag: string;
 	title: string;
-	date: string;
 	dateLabel: string;
 	location: string;
 	meta: string;
@@ -27,8 +36,7 @@ type PastEvent = {
 	details: string;
 };
 
-function EventsGallery() {
-	const upcomingEvents: UpcomingEvent[] = [
+const STATIC_UPCOMING: UpcomingEvent[] = [
 		{
 			tag: "Upcoming",
 			title: "UK Boarding School Information Evening - Lagos",
@@ -58,7 +66,7 @@ function EventsGallery() {
 		},
 	];
 
-	const pastHighlights: PastEvent[] = [
+const STATIC_PAST: PastEvent[] = [
 		{
 			tag: "Highlight",
 			title: "Partner School Showcase - Accra",
@@ -109,6 +117,62 @@ function EventsGallery() {
 		},
 	];
 
+function EventsGallery() {
+	const [upcomingEvents, setUpcomingEvents] =
+		useState<UpcomingEvent[]>(STATIC_UPCOMING);
+	const [pastHighlights, setPastHighlights] =
+		useState<PastEvent[]>(STATIC_PAST);
+	const [cmsLoadError, setCmsLoadError] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (!hasCms()) return;
+		let cancelled = false;
+		(async () => {
+			try {
+				const [upDocs, pastDocs] = await Promise.all([
+					fetchEventsPayload("upcoming"),
+					fetchEventsPayload("past"),
+				]);
+				if (cancelled) return;
+				const mappedUp: UpcomingEvent[] = upDocs.map((d) => ({
+					cmsId: d.id,
+					tag: d.tag || "Upcoming",
+					title: d.title,
+					date: d.startDate
+						? new Date(d.startDate).toISOString().slice(0, 10)
+						: "",
+					dateLabelOnly: !d.startDate,
+					dateLabel: d.dateLabel,
+					location: d.location,
+					meta: d.meta || "",
+					copy: d.copy,
+				}));
+				const mappedPast: PastEvent[] = pastDocs.map((d) => ({
+					tag: d.tag || "Highlight",
+					title: d.title,
+					date: d.dateLabel,
+					location: d.location,
+					meta: d.meta || "",
+					copy: d.copy,
+					images: galleryToImageUrls(d),
+					details: d.details || "",
+				}));
+				setUpcomingEvents(mappedUp.length ? mappedUp : STATIC_UPCOMING);
+				setPastHighlights(mappedPast.length ? mappedPast : STATIC_PAST);
+				setCmsLoadError(null);
+			} catch (e) {
+				if (!cancelled) {
+					setCmsLoadError(
+						e instanceof Error ? e.message : "Could not load events from CMS.",
+					);
+				}
+			}
+		})();
+		return () => {
+			cancelled = true;
+		};
+	}, []);
+
 	const [activeEvent, setActiveEvent] = useState<PastEvent | null>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [rsvpEvent, setRsvpEvent] = useState<UpcomingEvent | null>(null);
@@ -119,10 +183,14 @@ function EventsGallery() {
 		message: "",
 	});
 	const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
+	const [rsvpError, setRsvpError] = useState<string | null>(null);
+	const [rsvpLoading, setRsvpLoading] = useState(false);
 
-	const sortedUpcoming = [...upcomingEvents].sort((a, b) =>
-		a.date.localeCompare(b.date),
-	);
+	const sortedUpcoming = [...upcomingEvents].sort((a, b) => {
+		const ad = a.date || "9999-12-31";
+		const bd = b.date || "9999-12-31";
+		return ad.localeCompare(bd);
+	});
 
 	useEffect(() => {
 		const anyModalOpen = Boolean(activeEvent || rsvpEvent);
@@ -158,15 +226,37 @@ function EventsGallery() {
 		setRsvpEvent(ev);
 		setRsvpForm({ name: "", phone: "", email: "", message: "" });
 		setRsvpSubmitted(false);
+		setRsvpError(null);
 	};
 
 	const closeRsvpModal = () => {
 		setRsvpEvent(null);
 	};
 
-	const handleRsvpSubmit = (e: React.FormEvent) => {
+	const handleRsvpSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-		// In production, would POST to API
+		setRsvpError(null);
+		if (!rsvpEvent) return;
+		if (hasCms() && rsvpEvent.cmsId != null) {
+			setRsvpLoading(true);
+			try {
+				await submitEventRsvp({
+					event: rsvpEvent.cmsId,
+					name: rsvpForm.name,
+					email: rsvpForm.email,
+					phone: rsvpForm.phone || undefined,
+					message: rsvpForm.message || undefined,
+				});
+				setRsvpSubmitted(true);
+			} catch (err) {
+				setRsvpError(
+					err instanceof Error ? err.message : "RSVP could not be submitted.",
+				);
+			} finally {
+				setRsvpLoading(false);
+			}
+			return;
+		}
 		setRsvpSubmitted(true);
 	};
 
@@ -190,24 +280,52 @@ function EventsGallery() {
 							designed to make the admissions journey clear and confident.
 						</p>
 					</div>
+					{cmsLoadError && (
+						<p
+							className="reveal"
+							style={{
+								color: "#b45309",
+								marginBottom: 16,
+								fontSize: "0.9rem",
+							}}
+						>
+							Events CMS: {cmsLoadError} (showing sample content)
+						</p>
+					)}
 					<ul className="events-list">
 						{sortedUpcoming.map((ev, idx) => (
 							<li
-								key={ev.title}
+								key={String(ev.cmsId ?? ev.title)}
 								className={`event-list-item reveal d${idx + 1}`}
 							>
 								<div className="event-list-date">
-									<span className="event-list-month">
-										{new Date(ev.date).toLocaleString("en-US", {
-											month: "short",
-										})}
-									</span>
-									<span className="event-list-day">
-										{new Date(ev.date).getDate()}
-									</span>
-									<span className="event-list-year">
-										{new Date(ev.date).getFullYear()}
-									</span>
+									{ev.dateLabelOnly || !ev.date ? (
+										<span
+											className="event-list-month"
+											style={{
+												gridColumn: "1 / -1",
+												fontSize: "0.85rem",
+												lineHeight: 1.3,
+											}}
+										>
+											{ev.dateLabel}
+										</span>
+									) : (
+										<>
+											<span className="event-list-month">
+												{new Date(ev.date + "T12:00:00").toLocaleString(
+													"en-US",
+													{ month: "short" },
+												)}
+											</span>
+											<span className="event-list-day">
+												{new Date(ev.date + "T12:00:00").getDate()}
+											</span>
+											<span className="event-list-year">
+												{new Date(ev.date + "T12:00:00").getFullYear()}
+											</span>
+										</>
+									)}
 								</div>
 								<div className="event-list-body">
 									<div className="event-tag">{ev.tag}</div>
@@ -253,7 +371,7 @@ function EventsGallery() {
 					<div className="events-grid">
 						{pastHighlights.map((ev, idx) => (
 							<button
-								key={ev.title}
+								key={`${ev.title}-${ev.date}`}
 								type="button"
 								className={`event-card event-card-image reveal d${idx + 1}`}
 								onClick={() => openModal(ev)}
@@ -463,6 +581,11 @@ function EventsGallery() {
 								</div>
 							) : (
 								<form className="rsvp-form" onSubmit={handleRsvpSubmit}>
+									{rsvpError && (
+										<p style={{ color: "#b91c1c", marginBottom: 12 }}>
+											{rsvpError}
+										</p>
+									)}
 									<label>
 										<span>Name</span>
 										<input
@@ -509,8 +632,12 @@ function EventsGallery() {
 											placeholder="Any dietary requirements, questions, or additional guests?"
 										/>
 									</label>
-									<button type="submit" className="event-rsvp-btn">
-										Submit RSVP
+									<button
+										type="submit"
+										className="event-rsvp-btn"
+										disabled={rsvpLoading}
+									>
+										{rsvpLoading ? "Sending…" : "Submit RSVP"}
 									</button>
 								</form>
 							)}

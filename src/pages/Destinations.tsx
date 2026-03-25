@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchDestinationsPayload, hasCms } from "../lib/cms";
 
 type PartnerSchool = {
 	name: string;
@@ -21,7 +22,7 @@ type Destination = {
 	schools: PartnerSchool[];
 };
 
-const DESTINATIONS: Destination[] = [
+const STATIC_DESTINATIONS: Destination[] = [
 	{
 		slug: "uk",
 		flag: "🇬🇧",
@@ -290,6 +291,49 @@ const DESTINATIONS: Destination[] = [
 
 function Destinations() {
 	const [openSlug, setOpenSlug] = useState<string | null>(null);
+	const [destinations, setDestinations] =
+		useState<Destination[]>(STATIC_DESTINATIONS);
+	const [cmsError, setCmsError] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (!hasCms()) return;
+		let cancelled = false;
+		(async () => {
+			try {
+				const docs = await fetchDestinationsPayload();
+				if (cancelled || !docs.length) return;
+				const mapped: Destination[] = docs.map((d) => ({
+					slug: d.slug,
+					flag: d.flag || "",
+					name: d.name,
+					region: d.region,
+					visaSummary: d.visaSummary,
+					studyPermitNotes: d.studyPermitNotes,
+					intakes: d.intakes,
+					popularCurricula: d.popularCurricula,
+					airport: d.airport,
+					notes: d.notes || undefined,
+					schools: (d.schools || []).map((s) => ({
+						name: s.name,
+						city: s.city,
+						type: s.type,
+						notes: s.notes || undefined,
+					})),
+				}));
+				setDestinations(mapped);
+				setCmsError(null);
+			} catch (e) {
+				if (!cancelled) {
+					setCmsError(
+						e instanceof Error ? e.message : "Could not load destinations.",
+					);
+				}
+			}
+		})();
+		return () => {
+			cancelled = true;
+		};
+	}, []);
 
 	const toggleCountry = (slug: string) => {
 		setOpenSlug(openSlug === slug ? null : slug);
@@ -334,7 +378,18 @@ function Destinations() {
 				</div>
 
 				<div className="destinations-accordion">
-					{DESTINATIONS.map((d) => {
+					{cmsError && (
+						<p
+							style={{
+								color: "#b45309",
+								marginBottom: 16,
+								fontSize: "0.9rem",
+							}}
+						>
+							Destinations CMS: {cmsError} (showing sample content)
+						</p>
+					)}
+					{destinations.map((d) => {
 						const isOpen = openSlug === d.slug;
 						return (
 							<div

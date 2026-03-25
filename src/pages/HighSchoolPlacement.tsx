@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { fetchFaqsPayload, hasCms } from "../lib/cms";
+import { Link } from "react-router-dom";
 
 const HS_DEST_SCROLL_STEP = 296; // card min-width (280) + gap (16)
 const HS_DEST_SCROLL_THRESHOLD = 5;
@@ -78,7 +80,7 @@ const HS_DESTINATIONS = [
 	},
 ];
 
-const HS_FAQ = [
+const STATIC_HS_FAQ = [
 	{
 		q: "When should we start the high school placement process?",
 		a: "We recommend starting at least 12–18 months before your target intake (typically September). This gives time for school research, applications, entrance tests, interviews, and visa preparation. For highly selective schools, earlier engagement can be beneficial.",
@@ -106,6 +108,23 @@ function HighSchoolPlacement() {
 	const [hsDestCanScrollLeft, setHsDestCanScrollLeft] = useState(false);
 	const [hsDestCanScrollRight, setHsDestCanScrollRight] = useState(false);
 	const [hsFaqOpen, setHsFaqOpen] = useState<number | null>(null);
+	const [hsFaqItems, setHsFaqItems] = useState(STATIC_HS_FAQ);
+
+	useEffect(() => {
+		if (!hasCms()) return;
+		let cancelled = false;
+		fetchFaqsPayload("high_school_placement")
+			.then((docs) => {
+				if (cancelled || !docs.length) return;
+				setHsFaqItems(
+					docs.map((d) => ({ q: d.question, a: d.answer })),
+				);
+			})
+			.catch(() => {});
+		return () => {
+			cancelled = true;
+		};
+	}, []);
 
 	const scrollHsDest = (direction: "left" | "right") => {
 		const el = hsDestScrollRef.current;
@@ -702,7 +721,7 @@ function HighSchoolPlacement() {
 						</div>
 					</div>
 					<div className="faq-list">
-						{HS_FAQ.map((item, i) => (
+						{hsFaqItems.map((item, i) => (
 							<div
 								key={i}
 								className={`faq-item${hsFaqOpen === i ? " open" : ""}`}
@@ -757,13 +776,13 @@ function HighSchoolPlacement() {
 							your child, we&apos;d love to understand your goals and explore
 							the options together.
 						</p>
-						<a
-							href="/contact-us"
+						<Link
+							to="/contact-us"
 							className="btn-fill"
 							style={{ marginTop: 24 }}
 						>
 							Talk To Us
-						</a>
+						</Link>
 					</div>
 				</div>
 			</section>

@@ -36,6 +36,15 @@ function ContactUs() {
 
 						{/* Book a call (Calendly) */}
 						<div style={{ marginTop: 32 }}>
+							<div
+								style={{
+									display: "flex",
+									gap: 12,
+									justifyContent: "center",
+									alignItems: "center",
+									flexWrap: "wrap",
+								}}
+							>
 							<a
 								href={calendlyUrl}
 								target="_blank"
@@ -44,16 +53,22 @@ function ContactUs() {
 							>
 								Book a Free Consultation
 							</a>
-							<p
-								style={{
-									marginTop: 12,
-									fontSize: "0.8rem",
-									color: "var(--mid)",
-								}}
-							>
-								You&apos;ll be taken to our Calendly page to pick a time that
-								suits you.
-							</p>
+								<a
+									href="https://chat.whatsapp.com/J0wFd2nm5IMGZPx5LxUCDp"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="btn-ghost"
+									style={{
+										color: "var(--ink)",
+										border: "1px solid rgba(22,43,87,.32)",
+										padding: "13px 22px",
+										background: "#fff",
+										borderRadius: 2,
+									}}
+								>
+									Join Our WhatsApp Community
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>

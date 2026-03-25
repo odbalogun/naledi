@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { fetchFaqsPayload, hasCms } from "../lib/cms";
 
 const UG_DEST_SCROLL_STEP = 296;
 const UG_DEST_SCROLL_THRESHOLD = 5;
@@ -78,7 +79,7 @@ const UG_DESTINATIONS = [
 	},
 ];
 
-const UG_FAQ = [
+const STATIC_UG_FAQ = [
 	{
 		q: "When should I start my university application?",
 		a: "For undergraduate applications, we recommend starting 12–18 months before your target intake. Many universities (especially in the UK and US) have early deadlines. For postgraduate programmes, 9–12 months ahead is typical. PhD applications often require 12–18 months due to research proposal development and supervisor matching.",
@@ -106,6 +107,23 @@ function UndergraduatePostgraduate() {
 	const [ugDestCanScrollLeft, setUgDestCanScrollLeft] = useState(false);
 	const [ugDestCanScrollRight, setUgDestCanScrollRight] = useState(false);
 	const [ugFaqOpen, setUgFaqOpen] = useState<number | null>(null);
+	const [ugFaqItems, setUgFaqItems] = useState(STATIC_UG_FAQ);
+
+	useEffect(() => {
+		if (!hasCms()) return;
+		let cancelled = false;
+		fetchFaqsPayload("undergraduate_postgraduate")
+			.then((docs) => {
+				if (cancelled || !docs.length) return;
+				setUgFaqItems(
+					docs.map((d) => ({ q: d.question, a: d.answer })),
+				);
+			})
+			.catch(() => {});
+		return () => {
+			cancelled = true;
+		};
+	}, []);
 
 	const scrollUgDest = (direction: "left" | "right") => {
 		const el = ugDestScrollRef.current;
@@ -456,7 +474,7 @@ function UndergraduatePostgraduate() {
 						</div>
 					</div>
 					<div className="faq-list">
-						{UG_FAQ.map((item, i) => (
+						{ugFaqItems.map((item, i) => (
 							<div
 								key={i}
 								className={`faq-item${ugFaqOpen === i ? " open" : ""}`}
