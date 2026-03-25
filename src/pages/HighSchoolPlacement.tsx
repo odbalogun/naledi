@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchFaqsPayload, hasCms } from "../lib/cms";
 import { Link } from "react-router-dom";
+import OptimizedImage from "../components/OptimizedImage";
 
 const HS_DEST_SCROLL_STEP = 296; // card min-width (280) + gap (16)
 const HS_DEST_SCROLL_THRESHOLD = 5;
@@ -162,19 +163,19 @@ function HighSchoolPlacement() {
 					<div className="mission-grid">
 						<div className="mi-wrap reveal">
 							<div className="mi tall">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=900&q=85&fit=crop&crop=center"
 									alt="African student on campus"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="/images/diverse_group.jpg"
 									alt="Students walking on campus"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="/images/black_student_writing.jpg"
 									alt="Graduate student"
 								/>
@@ -265,7 +266,7 @@ function HighSchoolPlacement() {
 					</div>
 					<div className="svc-lay">
 						<div className="svc-feat reveal">
-							<img
+							<OptimizedImage
 								src="https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=900&q=85&fit=crop"
 								alt="Student application"
 							/>
@@ -403,7 +404,7 @@ function HighSchoolPlacement() {
 						<div className="hs-dest-scroll" ref={hsDestScrollRef}>
 							{HS_DESTINATIONS.map((d, i) => (
 								<div key={d.name} className={`dc reveal d${i + 1}`}>
-									<img src={d.img} alt={d.name} />
+									<OptimizedImage src={d.img} alt={d.name} />
 									<div className="dc-body">
 										<span className="dc-flag">{d.flag}</span>
 										<div className="dc-name">{d.name}</div>
@@ -643,7 +644,7 @@ function HighSchoolPlacement() {
 							</p>
 							<div className="t-mini-f">
 								<div className="t-mini-av">
-									<img
+									<OptimizedImage
 										src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=120&q=85&fit=crop&crop=face"
 										alt="Parent"
 									/>
@@ -666,13 +667,13 @@ function HighSchoolPlacement() {
 							</p>
 							<div className="t-mini-f">
 								<div className="t-mini-av">
-									<img
+									<OptimizedImage
 										src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=85&fit=crop&crop=face"
 										alt="Student"
 									/>
 								</div>
 								<div>
-									<span className="t-mini-nm">Amara O.</span>
+									<span className="t-mini-nm">Amaka O.</span>
 									<span className="t-mini-lc">
 										Student · UK Boarding School · Full Scholarship
 									</span>
@@ -689,7 +690,7 @@ function HighSchoolPlacement() {
 							</p>
 							<div className="t-mini-f">
 								<div className="t-mini-av">
-									<img
+									<OptimizedImage
 										src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=120&q=85&fit=crop&crop=face"
 										alt="Parent"
 									/>

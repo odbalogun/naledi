@@ -1,3 +1,5 @@
+import OptimizedImage from "../components/OptimizedImage";
+
 function About() {
 	return (
 		<>
@@ -6,19 +8,19 @@ function About() {
 					<div className="mission-grid">
 						<div className="mi-wrap reveal">
 							<div className="mi tall">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=85&fit=crop&crop=center"
 									alt="Student reading"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1543269664-7eef42226a21?w=800&q=85&fit=crop"
 									alt="Students collaborating"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=85&fit=crop"
 									alt="Graduate student"
 								/>

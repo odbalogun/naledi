@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchFaqsPayload, hasCms } from "../lib/cms";
+import OptimizedImage from "../components/OptimizedImage";
 
 const UG_DEST_SCROLL_STEP = 296;
 const UG_DEST_SCROLL_THRESHOLD = 5;
@@ -160,19 +161,22 @@ function UndergraduatePostgraduate() {
 					<div className="mission-grid">
 						<div className="mi-wrap reveal">
 							<div className="mi tall">
-								<img
+								<OptimizedImage
 									src="/images/student_laptop.png"
 									alt="University Student"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=85&fit=crop"
 									alt="Students collaborating"
 								/>
 							</div>
 							<div className="mi sq">
-								<img src="/images/two_students.jpg" alt="Graduate studies" />
+								<OptimizedImage
+									src="/images/two_students.jpg"
+									alt="Graduate studies"
+								/>
 							</div>
 						</div>
 						<div className="m-copy reveal d2">
@@ -426,7 +430,7 @@ function UndergraduatePostgraduate() {
 						<div className="ug-dest-scroll" ref={ugDestScrollRef}>
 							{UG_DESTINATIONS.map((d, i) => (
 								<div key={d.name} className={`dc reveal d${i + 1}`}>
-									<img src={d.img} alt={d.name} />
+									<OptimizedImage src={d.img} alt={d.name} />
 									<div className="dc-body">
 										<span className="dc-flag">{d.flag}</span>
 										<div className="dc-name">{d.name}</div>

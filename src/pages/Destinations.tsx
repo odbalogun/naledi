@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchDestinationsPayload, hasCms } from "../lib/cms";
+import OptimizedImage from "../components/OptimizedImage";
 
 type PartnerSchool = {
 	name: string;
@@ -373,7 +374,11 @@ function Destinations() {
 						</p>
 					</div>
 					<div className="dest-hero-image">
-						<img src="/images/hero_img_bg.png" alt="Students studying abroad" />
+						<OptimizedImage
+							src="/images/hero_img_bg.png"
+							alt="Students studying abroad"
+							priority
+						/>
 					</div>
 				</div>
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import OptimizedImage from "../components/OptimizedImage";
 
 const SUMMER_SPORTS = [
 	{
@@ -66,19 +67,19 @@ function CampsSeasonalPrograms() {
 					<div className="mission-grid">
 						<div className="mi-wrap reveal">
 							<div className="mi tall">
-								<img
+								<OptimizedImage
 									src="/images/football_training.jpg"
 									alt="Football training"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="/images/camp_students.png"
 									alt="Students at summer school"
 								/>
 							</div>
 							<div className="mi sq">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=85&fit=crop&crop=center"
 									alt="Young athletes in training"
 								/>
@@ -157,7 +158,7 @@ function CampsSeasonalPrograms() {
 					<div className="program-cards">
 						<article className="program-card reveal d1">
 							<div className="program-card-img">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=85&fit=crop&crop=center"
 									alt="Summer camp group activity"
 								/>
@@ -180,7 +181,7 @@ function CampsSeasonalPrograms() {
 						</article>
 						<article className="program-card reveal d2">
 							<div className="program-card-img">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=85&fit=crop&crop=center"
 									alt="Students in summer school class"
 								/>
@@ -200,7 +201,7 @@ function CampsSeasonalPrograms() {
 						</article>
 						<article className="program-card reveal d3">
 							<div className="program-card-img">
-								<img
+								<OptimizedImage
 									src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=85&fit=crop&crop=center"
 									alt="Young athletes on a football pitch"
 								/>
@@ -227,7 +228,7 @@ function CampsSeasonalPrograms() {
 				<div className="si">
 					<div className="camp-section-content camp-section-reverse">
 						<div className="camp-section-img reveal">
-							<img
+							<OptimizedImage
 								src="/images/football_kick.jpg"
 								alt="Young footballers training on pitch"
 							/>
@@ -302,7 +303,7 @@ function CampsSeasonalPrograms() {
 								className={`sport-card reveal d${(i % 3) + 1}${sport.highlight ? " sport-card-highlight" : ""}`}
 							>
 								<div className="sport-card-img">
-									<img src={sport.img} alt={sport.name} />
+									<OptimizedImage src={sport.img} alt={sport.name} />
 									<span className="sport-card-label">{sport.name}</span>
 								</div>
 								<div className="sport-card-body">
@@ -321,7 +322,7 @@ function CampsSeasonalPrograms() {
 								className={`sport-card reveal d${(i % 3) + 1}`}
 							>
 								<div className="sport-card-img">
-									<img src={sport.img} alt={sport.name} />
+									<OptimizedImage src={sport.img} alt={sport.name} />
 									<span className="sport-card-label">{sport.name}</span>
 								</div>
 								<div className="sport-card-body">

@@ -1,6 +1,7 @@
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import OptimizedImage from "../components/OptimizedImage";
 import {
 	cmsMediaUrl,
 	fetchArticleBySlug,
@@ -185,7 +186,7 @@ function BlogPost() {
 
 				{cover ? (
 					<div className="blog-article-cover reveal d2">
-						<img src={cover} alt="" />
+						<OptimizedImage src={cover} alt="" />
 					</div>
 				) : null}
 

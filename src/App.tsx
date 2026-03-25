@@ -8,6 +8,7 @@ import EventsGallery from "./pages/EventsGallery";
 import ContactUs from "./pages/ContactUs";
 import Destinations from "./pages/Destinations";
 import CampsSeasonalPrograms from "./pages/CampsSeasonalPrograms";
+import OptimizedImage from "./components/OptimizedImage";
 import "./App.css";
 
 const ARROW_SVG = (
@@ -211,9 +212,10 @@ function App() {
 								<section className="hero">
 									<div className="hero-panels">
 										<div className="hero-panel p-campus">
-											<img
+											<OptimizedImage
 												src="/images/hero_img_bg.png"
 												alt="British Nigerian Student"
+												priority
 											/>
 										</div>
 									</div>
@@ -306,19 +308,19 @@ function App() {
 										<div className="mission-grid">
 											<div className="mi-wrap reveal">
 												<div className="mi tall">
-													<img
+													<OptimizedImage
 														src="/images/lab_student.png"
 														alt="British Nigerian student in school uniform"
 													/>
 												</div>
 												<div className="mi sq">
-													<img
+													<OptimizedImage
 														src="/images/muslim_image.png"
 														alt="Nigerian students in classroom"
 													/>
 												</div>
 												<div className="mi sq">
-													<img
+													<OptimizedImage
 														src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=85&fit=crop"
 														alt="Students studying as a group"
 													/>
@@ -476,7 +478,7 @@ function App() {
 													},
 												].map((s, i) => (
 													<div key={i} className={`sc reveal d${i + 1}`}>
-														<img src={s.img} alt={s.name} />
+														<OptimizedImage src={s.img} alt={s.name} />
 														<div className="sc-ov">
 															<span className="sc-ctry">{s.country}</span>
 															<div className="sc-name">{s.name}</div>
@@ -532,7 +534,7 @@ function App() {
 										</div>
 										<div className="svc-lay">
 											<div className="svc-feat reveal">
-												<img
+												<OptimizedImage
 													src="https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=900&q=85&fit=crop"
 													alt="Student application"
 												/>
@@ -647,7 +649,7 @@ function App() {
 												},
 											].map((d, i) => (
 												<div key={i} className={`dc reveal d${i + 1}`}>
-													<img src={d.img} alt={d.name} />
+													<OptimizedImage src={d.img} alt={d.name} />
 													<div className="dc-body">
 														<span className="dc-flag">{d.flag}</span>
 														<div className="dc-name">{d.name}</div>
@@ -703,7 +705,7 @@ function App() {
 											</p>
 										</div>
 										<div className="proc-photo reveal">
-											<img
+											<OptimizedImage
 												src="/images/library_1.png"
 												alt="Diverse students collaborating"
 											/>
@@ -765,7 +767,7 @@ function App() {
 										</div>
 										<div className="t-feat reveal">
 											<div className="t-feat-img">
-												<img
+												<OptimizedImage
 													src="/images/black_woman_to_board.png"
 													alt="Happy graduate"
 												/>
@@ -781,9 +783,9 @@ function App() {
 												</p>
 												<div className="t-per">
 													<div className="t-av">
-														<img
+														<OptimizedImage
 															src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=85&fit=crop&crop=face"
-															alt="Amara O."
+															alt="Amaka O."
 														/>
 													</div>
 													<div>
@@ -806,7 +808,7 @@ function App() {
 												</p>
 												<div className="t-mini-f">
 													<div className="t-mini-av">
-														<img
+														<OptimizedImage
 															src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=120&q=85&fit=crop&crop=face"
 															alt="Farida M."
 														/>
@@ -829,7 +831,7 @@ function App() {
 												</p>
 												<div className="t-mini-f">
 													<div className="t-mini-av">
-														<img
+														<OptimizedImage
 															src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=120&q=85&fit=crop&crop=face"
 															alt="Zola D."
 														/>
@@ -848,7 +850,7 @@ function App() {
 
 								<section className="cta" id="cta">
 									<div className="cta-wrap">
-										<img
+										<OptimizedImage
 											src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1800&q=85&fit=crop&crop=center"
 											alt="African students together"
 										/>

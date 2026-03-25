@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import OptimizedImage from "../components/OptimizedImage";
 import {
 	fetchEventsPayload,
 	galleryToImageUrls,
@@ -377,7 +378,7 @@ function EventsGallery() {
 								onClick={() => openModal(ev)}
 							>
 								<div className="event-card-img-wrap">
-									<img src={ev.images[0].url} alt={ev.title} />
+									<OptimizedImage src={ev.images[0].url} alt={ev.title} />
 								</div>
 								<div className="event-card-overlay">
 									<div className="event-tag">{ev.tag}</div>
@@ -456,7 +457,7 @@ function EventsGallery() {
 						<div className="event-modal-content">
 							<div className="event-modal-gallery">
 								<div className="event-modal-main-img">
-									<img
+									<OptimizedImage
 										src={activeEvent.images[activeIndex].url}
 										alt={`${activeEvent.title} - ${activeEvent.images[activeIndex].caption}`}
 									/>

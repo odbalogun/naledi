@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import OptimizedImage from "../components/OptimizedImage";
 import {
 	cmsMediaUrl,
 	fetchArticlesPayload,
@@ -96,7 +97,7 @@ function Blog() {
 								<Link to={`/blog/${a.slug}`} className="blog-card-link">
 									{cover ? (
 										<div className="blog-card-img-wrap">
-											<img src={cover} alt="" />
+											<OptimizedImage src={cover} alt="" />
 										</div>
 									) : null}
 									<div className="blog-card-body">

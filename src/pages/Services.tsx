@@ -1,3 +1,5 @@
+import OptimizedImage from "../components/OptimizedImage";
+
 function Services() {
 	return (
 		<>
@@ -23,7 +25,7 @@ function Services() {
 					</div>
 					<div className="svc-lay">
 						<div className="svc-feat reveal">
-							<img
+							<OptimizedImage
 								src="https://images.unsplash.com/photo-1613896527026-f195d5c818ed?w=900&q=85&fit=crop"
 								alt="Student application"
 							/>

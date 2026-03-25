@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet, Link, NavLink } from "react-router-dom";
+import OptimizedImage from "./components/OptimizedImage";
 
 function Layout() {
 	const [isNavOpen, setIsNavOpen] = useState(false);
@@ -10,7 +11,7 @@ function Layout() {
 		<>
 			<nav id="nav">
 				<Link className="logo" to="/" onClick={closeNav}>
-					<img
+					<OptimizedImage
 						src="/naledi_logo_1.png"
 						alt="Naledi Education"
 						className="logo-img"
@@ -70,7 +71,7 @@ function Layout() {
 				<div className="ft">
 					<div className="fb">
 						<Link to="/" className="fb-logo">
-							<img
+							<OptimizedImage
 								src="/naledi_logo_1.png"
 								alt="Naledi Education"
 								className="fb-logo-img"
