@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchFaqsPayload, hasCms } from "../lib/cms";
 import { Link } from "react-router-dom";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 
 const HS_DEST_SCROLL_STEP = 296; // card min-width (280) + gap (16)
 const HS_DEST_SCROLL_THRESHOLD = 5;
@@ -157,6 +158,11 @@ function HighSchoolPlacement() {
 
 	return (
 		<>
+			<Seo
+				title="High School Placement | Naledi Education"
+				description="Expert guidance for African families seeking world-class boarding and day school placements, scholarships, and visa support."
+				path="/high-school-placement"
+			/>
 			{/* Hero / overview */}
 			<section className="mission">
 				<div className="si">

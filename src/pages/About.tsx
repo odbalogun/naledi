@@ -1,8 +1,14 @@
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 
 function About() {
 	return (
 		<>
+			<Seo
+				title="About Naledi Education"
+				description="Learn about Naledi Education's mission, values, and approach to helping African students access world-class schools."
+				path="/about"
+			/>
 			<section className="mission">
 				<div className="si">
 					<div className="mission-grid">

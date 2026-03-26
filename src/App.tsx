@@ -9,6 +9,7 @@ import ContactUs from "./pages/ContactUs";
 import Destinations from "./pages/Destinations";
 import CampsSeasonalPrograms from "./pages/CampsSeasonalPrograms";
 import OptimizedImage from "./components/OptimizedImage";
+import Seo from "./components/Seo";
 import "./App.css";
 
 const ARROW_SVG = (
@@ -209,6 +210,11 @@ function App() {
 						index
 						element={
 							<>
+								<Seo
+									title="Naledi Education - Your Pathway to World-Class Education"
+									description="Naledi Education places exceptional African students in world-class schools with expert support across high school, university, camps, and admissions guidance."
+									path="/"
+								/>
 								<section className="hero">
 									<div className="hero-panels">
 										<div className="hero-panel p-campus">

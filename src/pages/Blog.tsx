@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 import {
 	cmsMediaUrl,
 	fetchArticlesPayload,
@@ -47,6 +48,11 @@ function Blog() {
 
 	return (
 		<section className="blog-page mission">
+			<Seo
+				title="Blog | Naledi Education"
+				description="Read admissions tips, student guidance, and education insights from Naledi Education."
+				path="/blog"
+			/>
 			<div className="si">
 				<div className="svc-top reveal">
 					<div>

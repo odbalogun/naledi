@@ -2,6 +2,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 import {
 	cmsMediaUrl,
 	fetchArticleBySlug,
@@ -75,27 +76,6 @@ function BlogPost() {
 		};
 	}, [slug]);
 
-	useEffect(() => {
-		if (!article) return;
-		document.title = `${article.title} | Naledi Education`;
-		let metaDesc = document.querySelector('meta[name="description"]');
-		if (!metaDesc) {
-			metaDesc = document.createElement("meta");
-			metaDesc.setAttribute("name", "description");
-			document.head.appendChild(metaDesc);
-		}
-		metaDesc.setAttribute("content", article.excerpt);
-		let metaKw = document.querySelector('meta[name="keywords"]');
-		if (article.metaKeywords) {
-			if (!metaKw) {
-				metaKw = document.createElement("meta");
-				metaKw.setAttribute("name", "keywords");
-				document.head.appendChild(metaKw);
-			}
-			metaKw.setAttribute("content", article.metaKeywords);
-		}
-	}, [article]);
-
 	const submitComment = async (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!article || !hasCms()) return;
@@ -161,6 +141,11 @@ function BlogPost() {
 
 	return (
 		<article className="blog-article mission">
+			<Seo
+				title={`${article.title} | Naledi Education`}
+				description={article.excerpt}
+				path={`/blog/${article.slug}`}
+			/>
 			<div className="si blog-article-inner">
 				<Link to="/blog" className="blog-back">
 					← All articles

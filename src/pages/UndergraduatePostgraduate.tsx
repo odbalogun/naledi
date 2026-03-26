@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchFaqsPayload, hasCms } from "../lib/cms";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 
 const UG_DEST_SCROLL_STEP = 296;
 const UG_DEST_SCROLL_THRESHOLD = 5;
@@ -156,6 +157,11 @@ function UndergraduatePostgraduate() {
 
 	return (
 		<>
+			<Seo
+				title="Undergraduate and Postgraduate | Naledi Education"
+				description="Apply to top global universities with tailored support for undergraduate, postgraduate, scholarships, and admissions strategy."
+				path="/undergraduate-postgraduate"
+			/>
 			<section className="mission">
 				<div className="si">
 					<div className="mission-grid">

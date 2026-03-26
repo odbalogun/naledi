@@ -1,9 +1,16 @@
+import Seo from "../components/Seo";
+
 function ContactUs() {
 	// Replace this with your real Calendly URL
 	const calendlyUrl = "https://calendly.com/your-org/initial-consultation";
 
 	return (
 		<>
+			<Seo
+				title="Contact Us | Naledi Education"
+				description="Contact Naledi Education to discuss school placement, consultations, and educational pathways for your child."
+				path="/contact-us"
+			/>
 			{/* Intro + core contact details */}
 			<section className="mission">
 				<div className="si">

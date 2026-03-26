@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 
 const SUMMER_SPORTS = [
 	{
@@ -61,6 +62,11 @@ const WINTER_SPORTS = [
 function CampsSeasonalPrograms() {
 	return (
 		<>
+			<Seo
+				title="Camps and Seasonal Programs | Naledi Education"
+				description="Find summer camps, summer school, and sport academies with expert guidance from Naledi Education."
+				path="/camps-seasonal-programs"
+			/>
 			{/* Hero / intro */}
 			<section className="mission">
 				<div className="si">

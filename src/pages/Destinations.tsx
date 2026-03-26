@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchDestinationsPayload, hasCms } from "../lib/cms";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 
 type PartnerSchool = {
 	name: string;
@@ -342,6 +343,11 @@ function Destinations() {
 
 	return (
 		<section className="destinations-page">
+			<Seo
+				title="Destinations | Naledi Education"
+				description="Explore top global school destinations, visa guidance, intakes, and partner institutions for African students."
+				path="/destinations"
+			/>
 			<div className="si">
 				<div className="dest-page-head">
 					<div>

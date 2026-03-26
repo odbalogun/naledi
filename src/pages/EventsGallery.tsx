@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OptimizedImage from "../components/OptimizedImage";
+import Seo from "../components/Seo";
 import {
 	fetchEventsPayload,
 	galleryToImageUrls,
@@ -263,6 +264,11 @@ function EventsGallery() {
 
 	return (
 		<>
+			<Seo
+				title="Events | Naledi Education"
+				description="Discover upcoming Naledi Education events, workshops, webinars, and community highlights for students and families."
+				path="/events"
+			/>
 			{/* Upcoming events */}
 			<section className="mission">
 				<div className="si">
