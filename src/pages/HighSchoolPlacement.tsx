@@ -668,7 +668,7 @@ function HighSchoolPlacement() {
 							<div className="t-mini-f">
 								<div className="t-mini-av">
 									<OptimizedImage
-										src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=85&fit=crop&crop=face"
+										src="/images/portrait_school_1.jpg"
 										alt="Student"
 									/>
 								</div>

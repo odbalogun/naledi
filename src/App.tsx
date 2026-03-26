@@ -442,14 +442,14 @@ function App() {
 											<div className="s-scroll" ref={storiesScrollRef}>
 												{[
 													{
-														img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=85&fit=crop&crop=top",
+														img: "/images/portrait_school_1.jpg",
 														country: "Nigeria → United Kingdom",
 														name: "Amaka O.",
 														school: "Eton College · Full Scholarship",
 														tag: "Class of 2023",
 													},
 													{
-														img: "/images/ghanaian_man.jpg",
+														img: "/images/ghanaian_man_2.jpg",
 														country: "Ghana → United States",
 														name: "Kofi A.",
 														school: "Phillips Exeter Academy",
