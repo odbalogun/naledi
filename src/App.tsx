@@ -781,23 +781,30 @@ function App() {
 											<div className="t-feat-body">
 												<div className="t-qm">&quot;</div>
 												<p className="t-q">
-													Naledi Education didn&apos;t just help me get into
+													{/* Naledi Education didn&apos;t just help me get into
 													Earlscliffe; they helped me believe I deserved to be there.
 													They coached me, believed in me, and pushed me to show
 													the real me in my application. I&apos;ll carry that
-													confidence for the rest of my life.
+													confidence for the rest of my life. */}
+													Hello, my name is Oyindamola and I am currently
+studying an MBA at York St John University, York in the
+UK. Getting here was seamless because Naledi
+Education assisted in the process. I want to thank the
+team for their continued efforts and support. I can
+confidently say they are your pathway to international
+education.
 												</p>
 												<div className="t-per">
-													<div className="t-av">
+													{/* <div className="t-av">
 														<OptimizedImage
 															src="/images/portrait_school_1.jpg"
 															alt="Amaka O."
 														/>
-													</div>
+													</div> */}
 													<div>
-														<span className="t-nm">Amaka O.</span>
+														<span className="t-nm">Oyindamola O.</span>
 														<span className="t-rl">
-															Earlscliffe School, UK · Lagos, Nigeria
+														York St John University, UK
 														</span>
 													</div>
 												</div>
@@ -813,7 +820,7 @@ function App() {
 													<div>
 														<span className="t-mini-nm">Mr & Mrs T.</span>
 														<span className="t-mini-lc">
-															Parents · Nigeria
+															Parents · Lagos, Nigeria
 														</span>
 													</div>
 												</div>
@@ -826,7 +833,7 @@ function App() {
 													<div>
 														<span className="t-mini-nm">Mr & Mrs O.</span>
 														<span className="t-mini-lc">
-															Parents · Nigeria
+															Parents · Lagos, Nigeria
 														</span>
 													</div>
 												</div>
