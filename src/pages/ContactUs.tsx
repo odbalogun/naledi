@@ -2,7 +2,7 @@ import Seo from "../components/Seo";
 
 function ContactUs() {
 	// Replace this with your real Calendly URL
-	const calendlyUrl = "https://calendly.com/your-org/initial-consultation";
+	const calendlyUrl = "https://www.calendly.com/naledieducation-bookmeeting";
 
 	return (
 		<>

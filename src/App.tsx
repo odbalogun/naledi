@@ -782,7 +782,7 @@ function App() {
 												<div className="t-qm">&quot;</div>
 												<p className="t-q">
 													Naledi Education didn&apos;t just help me get into
-													Eton; they helped me believe I deserved to be there.
+													Earlscliffe; they helped me believe I deserved to be there.
 													They coached me, believed in me, and pushed me to show
 													the real me in my application. I&apos;ll carry that
 													confidence for the rest of my life.
@@ -790,14 +790,14 @@ function App() {
 												<div className="t-per">
 													<div className="t-av">
 														<OptimizedImage
-															src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=85&fit=crop&crop=face"
+															src="/images/portrait_school_1.jpg"
 															alt="Amaka O."
 														/>
 													</div>
 													<div>
-														<span className="t-nm">Amara Okonkwo</span>
+														<span className="t-nm">Amaka O.</span>
 														<span className="t-rl">
-															Eton College, UK · Lagos, Nigeria
+															Earlscliffe School, UK · Lagos, Nigeria
 														</span>
 													</div>
 												</div>
@@ -806,46 +806,27 @@ function App() {
 										<div className="t-row">
 											<div className="t-mini reveal d1">
 												<p>
-													As a parent, I was overwhelmed by the whole process.
-													Naledi Education guided our entire family with
-													patience and expertise. Our daughter now thrives at
-													Phillips Exeter ; it&apos;s everything we dreamed of
-													and more.
+												Thanks to Naledi Education, our three children secured admission and partial scholarships at UK boarding schools and a university in Birmingham. The support was excellent from start to finish. </p><p>We have always used their services and will continue to.
 												</p>
 												<div className="t-mini-f">
-													<div className="t-mini-av">
-														<OptimizedImage
-															src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=120&q=85&fit=crop&crop=face"
-															alt="Farida M."
-														/>
-													</div>
+													
 													<div>
-														<span className="t-mini-nm">Farida Mensah</span>
+														<span className="t-mini-nm">Mr & Mrs T.</span>
 														<span className="t-mini-lc">
-															Parent · Phillips Exeter · Accra, Ghana
+															Parents · Nigeria
 														</span>
 													</div>
 												</div>
 											</div>
 											<div className="t-mini reveal d2">
 												<p>
-													I received a full scholarship to Geelong Grammar and I
-													still can&apos;t believe it. Naledi Education&apos;s
-													essay coaching and interview prep gave me the
-													confidence to compete with students from anywhere in
-													the world.
+												Our daughter, an alumnus of James Hope College, Lagos, met with Naledi Education at their school&apos;s educational fair in 2023. They took us through the process with clarity until she went to study towards her A-levels at a UK boarding school in Kent in 2025. We highly recommend.
 												</p>
 												<div className="t-mini-f">
-													<div className="t-mini-av">
-														<OptimizedImage
-															src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=120&q=85&fit=crop&crop=face"
-															alt="Zola D."
-														/>
-													</div>
 													<div>
-														<span className="t-mini-nm">Zola Dlamini</span>
+														<span className="t-mini-nm">Mr & Mrs O.</span>
 														<span className="t-mini-lc">
-															Geelong Grammar, AU · Johannesburg, SA
+															Parents · Nigeria
 														</span>
 													</div>
 												</div>
